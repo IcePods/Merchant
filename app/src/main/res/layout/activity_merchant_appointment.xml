@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.shan.merchant.Activity.MerchantAppointmentActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/headerlistborder">
+
+        <ImageButton
+            android:id="@+id/appointment_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:src="@mipmap/ic_right_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:text="预约管理"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/listborder"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_appointment_waitForDealing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="待处理"
+            android:textColor="#F7A113"/>
+
+
+        <TextView
+            android:id="@+id/tv_appointment_NotDone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="未完成" />
+
+        <TextView
+            android:id="@+id/tv_appointment_Done"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="已完成" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/appointment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+</LinearLayout>
