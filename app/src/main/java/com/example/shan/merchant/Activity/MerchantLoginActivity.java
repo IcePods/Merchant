@@ -1,9 +1,11 @@
-package com.example.shan.merchant;
+package com.example.shan.merchant.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.shan.merchant.R;
+
+public class MerchantLoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
