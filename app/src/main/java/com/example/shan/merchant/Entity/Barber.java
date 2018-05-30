@@ -11,7 +11,7 @@ public class Barber implements Serializable{
     private int id;
     private int BarberImg; //理发师头像
     private String BarberName;//理发师姓名
-    private String BarberIntro;//理发师简介
+    private String BarberIntro;//理发师介绍
 
     public Barber() {
     }

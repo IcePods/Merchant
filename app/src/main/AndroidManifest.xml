@@ -20,6 +20,8 @@
         <activity android:name=".Activity.MerchantRegisterActivity" />
         <activity android:name=".Activity.MerchantAppointmentActivity" />
         <activity android:name=".Activity.MerchantEmployessActivity"/>
+        <activity android:name=".Activity.MerchantEmployessChangeActivity" />
+        <activity android:name=".Activity.MerchantEmployessAddActivity"></activity>
         <activity android:name=".Activity.MerchantCompleteinfoActivity" />
         <activity android:name=".Activity.MerchantInformationActivity"></activity>
     </application>

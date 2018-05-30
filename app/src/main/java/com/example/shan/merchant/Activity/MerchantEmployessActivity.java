@@ -42,8 +42,8 @@ public class MerchantEmployessActivity extends AppCompatActivity {
                 //携带数据跳转到另一个Activity，进行数据的更新操作
                 Intent intent = new Intent();
                 //指定跳转路线
-                intent.setClass(getApplicationContext(),MainActivity.class);
-                //把点击的商品对象添加到intent对象中去
+                intent.setClass(getApplicationContext(),MerchantEmployessChangeActivity.class);
+                //把点击的理发师对象添加到intent对象中去
                 Bundle bundle = new Bundle();
                 Barber barber = (Barber) adapter.getItem(position);
                 bundle.putSerializable("barberInfo",barber);
@@ -66,12 +66,10 @@ public class MerchantEmployessActivity extends AppCompatActivity {
                     break;
                 //添加店员
                 case R.id.merchant_employess_add:
-                    //修改button背景颜色
-                    addbutton.setBackgroundColor(0x7fc9c9c9);
                     Intent intent = new Intent();
-                    //只实现跳转，跳转到店员管理页面
+                    //只实现跳转，跳转到添加店员页面
                     //2. 指定跳转路线
-                    intent.setClass(getApplicationContext(),MainActivity.class);
+                    intent.setClass(getApplicationContext(),MerchantEmployessAddActivity.class);
                     //3. 进行跳转
                     startActivity(intent);
                     break;
