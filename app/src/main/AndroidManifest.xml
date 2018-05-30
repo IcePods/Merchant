@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Activity.MerchantLoginActivity" />
         <activity android:name=".Activity.MerchantRegisterActivity" />
-        <activity android:name=".Activity.MerchantAppointmentActivity"></activity>
+        <activity android:name=".Activity.MerchantAppointmentActivity" />
+        <activity android:name=".Activity.MerchantEmployessActivity"></activity>
     </application>
 
 </manifest>

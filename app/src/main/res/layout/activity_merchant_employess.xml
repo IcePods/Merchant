@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.shan.merchant.Activity.MerchantEmployessActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/headerlistborder">
+
+        <ImageButton
+            android:id="@+id/merchant_employess_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:src="@mipmap/ic_right_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:text="店员管理"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/merchant_employess_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+添加店员"
+        android:background="#ffffff"/>
+    <ListView
+        android:id="@+id/merchant_employees_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+</LinearLayout>
