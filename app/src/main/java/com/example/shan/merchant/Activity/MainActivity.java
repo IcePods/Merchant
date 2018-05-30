@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 //预约管理
                 case R.id.merchant_home_appointment:
+                    intent.setClass(getApplicationContext(),MerchantAppointmentActivity.class);
+                    startActivity(intent);
                     break;
                 //活动管理
                 case R.id.merchant_home_activitys:
