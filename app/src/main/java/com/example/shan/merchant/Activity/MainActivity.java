@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId()){
                 //店铺管理
                 case R.id.merchant_home_information:
+                    //只实现跳转，跳转到店铺管理页面
+                    //2. 指定跳转路线
+                    intent.setClass(getApplicationContext(),MerchantInformationActivity.class);
+                    //3. 进行跳转
+                    startActivity(intent);
                     break;
                 //店员管理
                 case R.id.merchant_home_employees:
