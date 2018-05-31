@@ -68,8 +68,6 @@ public class MerchantInformationActivity extends AppCompatActivity {
                     break;
                 //点击保存按钮
                 case R.id.merchant_information_confirm:
-                    intent.setClass(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
                     finish();
                     break;
             }

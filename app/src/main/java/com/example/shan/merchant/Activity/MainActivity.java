@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 //发布作品
                 case R.id.merchant_home_works:
+                    intent.setClass(getApplicationContext(),MerchantProductionListActivity.class);
+                    startActivity(intent);
                     break;
                 //退出登录
                 case R.id.merchant_home_exit:
