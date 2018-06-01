@@ -90,7 +90,7 @@ public class MerchantAppointmentActivity extends AppCompatActivity {
         }
     }
 
-    // ragmentManage的监听器 点击切换页面
+    // fragmentManage的监听器 点击切换页面
     private class onClickListenerImpl implements View.OnClickListener {
         @Override
         public void onClick(View view) {

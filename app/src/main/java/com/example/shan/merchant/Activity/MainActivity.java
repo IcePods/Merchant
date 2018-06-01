@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 //活动管理
                 case R.id.merchant_home_activitys:
+                    intent.setClass(getApplicationContext(),MerchantActivitysActivity.class);
+                    startActivity(intent);
                     break;
                 //发布作品
                 case R.id.merchant_home_works:
@@ -86,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 //退出登录
                 case R.id.merchant_home_exit:
+                    intent.setClass(getApplicationContext(),MerchantLoginActivity.class);
+                    startActivity(intent);
                     break;
             }
         }
