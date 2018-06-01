@@ -7,7 +7,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="@drawable/listborder">
+        android:background="@drawable/listborder"
+        android:descendantFocusability="blocksDescendants">
         <ImageView
             android:id="@+id/item_production_image"
             android:layout_width="120dp"

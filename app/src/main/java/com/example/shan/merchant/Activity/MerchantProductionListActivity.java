@@ -1,5 +1,6 @@
 package com.example.shan.merchant.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,19 +21,34 @@ public class MerchantProductionListActivity extends AppCompatActivity {
     private ImageButton backBtn;
     private Button addBtn;
     private MyClickListener myClickListener;
+    private ListView lv;
     private List<Works> list = new ArrayList<>();
+    public static MerchantProductionListActivity prolist = null;//用于finish页面
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_merchant_production_list);
+        prolist = this;
         //获取控件
         findview();
+        //获取数据源
         list = creakDatasource();
-        ListView lv = findViewById(R.id.merchant_production_list);
+        //获取监听器
         myClickListener = new MyClickListener();
-        final MerchantProductionListAdopter adopter1 = new MerchantProductionListAdopter(this,R.layout.item_activity_merchant_production,list);
-        lv.setAdapter(adopter1);
+        final MerchantProductionListAdopter adopter = new MerchantProductionListAdopter(this,R.layout.item_activity_merchant_production,list);
+        lv.setAdapter(adopter);
         lv.setDivider(null);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //携带数据跳转到另一个Activity，进行数据的更新操作
+                Intent intent = new Intent();
+                //指定跳转路线
+                intent.setClass(getApplicationContext(),MerchantProductionDetailActivity.class);
+
+                startActivity(intent);
+            }
+        });
         backBtn.setOnClickListener(myClickListener);
         addBtn.setOnClickListener(myClickListener);
     }
@@ -40,15 +56,19 @@ public class MerchantProductionListActivity extends AppCompatActivity {
     private void findview() {
         backBtn = findViewById(R.id.merchant_production_list_back);
         addBtn = findViewById(R.id.create_new_production);
+        lv = findViewById(R.id.merchant_production_list);
     }
     private class MyClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view) {
+            Intent intent = new Intent();
             switch (view.getId()){
                 case R.id.merchant_production_list_back:
                     finish();
                     break;
                 case R.id.create_new_production:
+                    intent.setClass(getApplicationContext(),MerchantNewProductionActivity.class);
+                    startActivity(intent);
                     break;
             }
         }
