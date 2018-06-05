@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hairtype">
+        <item>剪发</item>
+        <item>染发</item>
+        <item>烫发</item>
+        <item>护理</item>
+    </string-array>
+</resources>
