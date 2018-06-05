@@ -49,18 +49,21 @@ public class MerchantAppointmentDoneFragment extends Fragment {
         Map<String,Object> appointment1 = new HashMap<>();
         appointment1.put("done_username","李梅梅");
         appointment1.put("done_tel","13443225322");
+        appointment1.put("done_content","剪发");
         appointment1.put("done_time","2018-5-30 9:00");
         doneAppointments.add(appointment1);
 
         Map<String,Object> appointment2 = new HashMap<>();
         appointment2.put("done_username","李磊");
         appointment2.put("done_tel","15732118890");
+        appointment2.put("done_content","烫发");
         appointment2.put("done_time","2018-5-30 9:00");
         doneAppointments.add(appointment2);
 
         Map<String,Object> appointment3 = new HashMap<>();
         appointment3.put("done_username","John");
         appointment3.put("done_tel","15233446642");
+        appointment3.put("done_content","染发");
         appointment3.put("done_time","2018-5-30 9:00");
         doneAppointments.add(appointment3);
 

@@ -57,12 +57,14 @@ public class AppointmentDoneFragmentAdapter extends BaseAdapter {
         //获取布局文件中的控件对象
         TextView done_username = convertView.findViewById(R.id.appointment_done_username);
         TextView done_tel = convertView.findViewById(R.id.appointment_done_tel);
+        TextView done_content = convertView.findViewById(R.id.appointment_done_content);
         TextView done_time = convertView.findViewById(R.id.appointment_done_time);
 
         //利用传递的数据源给相应的控件对象赋值
         Map<String,Object> doneAppointments = doneAppointmentList.get(i);
         done_username.setText((String)doneAppointments.get("done_username"));
         done_tel.setText((String)doneAppointments.get("done_tel"));
+        done_content.setText((String)doneAppointments.get("done_content"));
         done_time.setText((String)doneAppointments.get("done_time"));
 
 

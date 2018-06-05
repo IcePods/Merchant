@@ -8,8 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.shan.merchant.R;
+
+import org.w3c.dom.Text;
 
 public class MerchantNewProductionActivity extends AppCompatActivity {
     private ImageButton Back;
@@ -17,6 +20,7 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
     private EditText WorkDescription;
     private EditText WorkPrice;
     private ImageView WorkPicture;
+    private TextView WorkHead;
     private Button Commit;
     private MyClickListener myClickListener;
 
@@ -36,6 +40,7 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
         WorkDescription = findViewById(R.id.new_production_description);
         WorkPrice = findViewById(R.id.new_production_price);
         WorkPicture = findViewById(R.id.new_production_shopimages);
+        WorkHead = findViewById(R.id.new_production_head);
         Commit = findViewById(R.id.commit_new_production);
         myClickListener = new MyClickListener();
     }

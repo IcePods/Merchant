@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.shan.merchant.R;
 
@@ -19,6 +20,7 @@ public class MerchantProductionChangeActivity extends AppCompatActivity {
     private EditText WorkDescriptionc;
     private EditText WorkPricec;
     private ImageView WorkPicturec;
+    private TextView WorkHeadc;
     private Button Commitc;
     private MyClickListener myClickListener;
 
@@ -38,6 +40,7 @@ public class MerchantProductionChangeActivity extends AppCompatActivity {
         WorkDescriptionc = findViewById(R.id.production_change_description);
         WorkPricec = findViewById(R.id.production_change_price);
         WorkPicturec = findViewById(R.id.production_change_picture);
+        WorkHeadc = findViewById(R.id.change_production_head);
         Commitc = findViewById(R.id.commit_production_change);
         myClickListener = new MyClickListener();
     }

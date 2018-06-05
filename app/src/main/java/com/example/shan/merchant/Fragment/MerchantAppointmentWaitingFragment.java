@@ -58,30 +58,35 @@ public class MerchantAppointmentWaitingFragment extends Fragment {
         Map<String,Object> appointment1 = new HashMap<>();
         appointment1.put("waiting_username","李梅梅");
         appointment1.put("waiting_tel","13443225322");
+        appointment1.put("waiting_content","剪发");
         appointment1.put("waiting_time","2018-5-30 9:00");
         waitingAppointments.add(appointment1);
 
         Map<String,Object> appointment2 = new HashMap<>();
         appointment2.put("waiting_username","李磊");
         appointment2.put("waiting_tel","15732118890");
+        appointment2.put("waiting_content","剪发");
         appointment2.put("waiting_time","2018-5-30 9:00");
         waitingAppointments.add(appointment2);
 
         Map<String,Object> appointment3 = new HashMap<>();
         appointment3.put("waiting_username","John");
         appointment3.put("waiting_tel","15233446642");
+        appointment3.put("waiting_content","剪发");
         appointment3.put("waiting_time","2018-5-30 9:00");
         waitingAppointments.add(appointment3);
 
         Map<String,Object> appointment4 = new HashMap<>();
         appointment4.put("waiting_username","John");
         appointment4.put("waiting_tel","15233446642");
+        appointment4.put("waiting_content","剪发");
         appointment4.put("waiting_time","2018-5-30 9:00");
         waitingAppointments.add(appointment4);
 
         Map<String,Object> appointment5 = new HashMap<>();
         appointment5.put("waiting_username","John");
         appointment5.put("waiting_tel","15233446642");
+        appointment5.put("waiting_content","剪发");
         appointment5.put("waiting_time","2018-5-30 9:00");
         waitingAppointments.add(appointment5);
 

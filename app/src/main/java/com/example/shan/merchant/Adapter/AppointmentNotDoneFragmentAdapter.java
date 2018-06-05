@@ -57,12 +57,14 @@ public class AppointmentNotDoneFragmentAdapter extends BaseAdapter {
         //获取布局文件中的控件对象
         TextView notdone_username = convertView.findViewById(R.id.appointment_notdone_username);
         TextView notdone_tel = convertView.findViewById(R.id.appointment_notdone_tel);
+        TextView notdone_content =convertView.findViewById(R.id.appointment_notdone_content);
         TextView notdone_time = convertView.findViewById(R.id.appointment_notdone_time);
 
         //利用传递的数据源给相应的控件对象赋值
         Map<String,Object> notDoneAppointments = notDoneAppointmentList.get(position);
         notdone_username.setText((String)notDoneAppointments.get("notdone_username"));
         notdone_tel.setText((String)notDoneAppointments.get("notdone_tel"));
+        notdone_content.setText((String)notDoneAppointments.get("notdone_content"));
         notdone_time.setText((String)notDoneAppointments.get("notdone_time"));
 
 

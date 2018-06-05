@@ -57,12 +57,14 @@ public class AppointmentWaitingFragmentAdapter extends BaseAdapter {
         //获取布局文件中的控件对象
         TextView waiting_username = convertView.findViewById(R.id.appointment_waiting_username);
         TextView waiting_tel = convertView.findViewById(R.id.appointment_waiting_tel);
+        TextView waiting_content = convertView.findViewById(R.id.appointment_waiting_content);
         TextView waiting_time = convertView.findViewById(R.id.appointment_waiting_time);
 
         //利用传递的数据源给相应的控件对象赋值
         Map<String,Object> waitingAppointments = waitingAppointmentList.get(position);
         waiting_username.setText((String)waitingAppointments.get("waiting_username"));
         waiting_tel.setText((String)waitingAppointments.get("waiting_tel"));
+        waiting_content.setText((String)waitingAppointments.get("waiting_content"));
         waiting_time.setText((String)waitingAppointments.get("waiting_time"));
 
 

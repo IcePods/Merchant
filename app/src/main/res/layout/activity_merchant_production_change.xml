@@ -61,8 +61,28 @@
                 android:hint="请输入作品名"
                 android:layout_toRightOf="@id/tv_production_change_title"/>
             <TextView
-                android:id="@+id/tv_production_change_description"
+                android:id="@+id/tv_change_production_head"
                 android:layout_below="@id/tv_production_change_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:textSize="17sp"
+                android:textColor="#101010"
+                android:text="选择作品头像"/>
+            <TextView
+                android:id="@+id/change_production_head"
+                android:layout_below="@id/tv_production_change_title"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="40dp"
+                android:textSize="17sp"
+                android:text="请选择>"/>
+            <TextView
+                android:id="@+id/tv_production_change_description"
+                android:layout_below="@id/tv_change_production_head"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
