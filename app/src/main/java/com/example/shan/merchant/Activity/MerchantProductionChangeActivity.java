@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.shan.merchant.R;
@@ -23,6 +26,8 @@ public class MerchantProductionChangeActivity extends AppCompatActivity {
     private TextView WorkHeadc;
     private Button Commitc;
     private MyClickListener myClickListener;
+    private ArrayAdapter adapter;
+    private Spinner spinnerc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,20 @@ public class MerchantProductionChangeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_merchant_production_change);
         //获取控件
         findview();
+        adapter =ArrayAdapter.createFromResource(this,R.array.hairtype,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerc.setAdapter(adapter);
+        spinnerc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i("ztl","你选择了"+adapterView.getItemAtPosition(i));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         Backc.setOnClickListener(myClickListener);
         Commitc.setOnClickListener(myClickListener);
     }
@@ -42,6 +61,7 @@ public class MerchantProductionChangeActivity extends AppCompatActivity {
         WorkPicturec = findViewById(R.id.production_change_picture);
         WorkHeadc = findViewById(R.id.change_production_head);
         Commitc = findViewById(R.id.commit_production_change);
+        spinnerc = findViewById(R.id.production_change_type);
         myClickListener = new MyClickListener();
     }
     private class MyClickListener implements View.OnClickListener{
@@ -50,7 +70,6 @@ public class MerchantProductionChangeActivity extends AppCompatActivity {
             Intent intent = new Intent();
             switch (view.getId()){
                 case R.id.merchant_production_change_back:
-                    Log.i("ztl","点击了返回");
                     finish();
                     break;
                 case R.id.commit_production_change:

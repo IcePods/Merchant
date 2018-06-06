@@ -132,8 +132,27 @@
                 android:layout_below="@id/production_change_description"
                 android:layout_toRightOf="@id/tv_production_change_price" />
             <TextView
+                android:id="@+id/tv_production_change_type"
+                android:layout_below="@id/tv_production_change_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:textSize="17sp"
+                android:textColor="#101010"
+                android:text="类型" />
+            <Spinner
+                android:id="@+id/production_change_type"
+                android:layout_below="@id/tv_production_change_price"
+                android:layout_toRightOf="@id/tv_production_change_type"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
                 android:id="@+id/tv_production_change_picture"
-                android:layout_below="@id/production_change_price"
+                android:layout_below="@id/tv_production_change_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
