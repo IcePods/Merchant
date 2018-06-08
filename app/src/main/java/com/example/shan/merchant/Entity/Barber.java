@@ -8,27 +8,27 @@ import java.io.Serializable;
  */
 
 public class Barber implements Serializable{
-    private int id;
+    private int BarberId;
     private int BarberImg; //理发师头像
     private String BarberName;//理发师姓名
-    private String BarberIntro;//理发师介绍
+    //用户与理发师主键关联映射
+    private Users user;
 
     public Barber() {
     }
 
-    public Barber(int id, int barberImg, String barberName, String barberIntro) {
-        this.id = id;
+    public Barber(int barberId, int barberImg, String barberName) {
+        this.BarberId = barberId;
         BarberImg = barberImg;
         BarberName = barberName;
-        BarberIntro = barberIntro;
     }
 
-    public int getId() {
-        return id;
+    public int getBarberId() {
+        return BarberId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBarberId(int barberId) {
+        BarberId = barberId;
     }
 
     public int getBarberImg() {
@@ -47,11 +47,11 @@ public class Barber implements Serializable{
         BarberName = barberName;
     }
 
-    public String getBarberIntro() {
-        return BarberIntro;
+    public Users getUser() {
+        return user;
     }
 
-    public void setBarberIntro(String barberIntro) {
-        BarberIntro = barberIntro;
+    public void setUser(Users user) {
+        this.user = user;
     }
 }

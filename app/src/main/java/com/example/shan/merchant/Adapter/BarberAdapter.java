@@ -77,12 +77,12 @@ public class BarberAdapter extends BaseAdapter{
         //利用传递的数据源给相应的控件对象赋值
         Barber barber = barbers.get(position);
         img.setImageResource(barber.getBarberImg());
-        String str = barber.getBarberIntro();
-        if(str.length() > 10){
-            str = str.substring(0,10)+"...";
-        }
+//        String str = barber.getBarberIntro();
+//        if(str.length() > 10){
+//            str = str.substring(0,10)+"...";
+//        }
         name.setText(barber.getBarberName());
-        introduce.setText(str);
+//        introduce.setText(str);
         //返回子项目布局视图
         return convertView;
     }

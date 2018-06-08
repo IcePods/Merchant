@@ -23,7 +23,7 @@ public class MerchantEmployessAddActivity extends AppCompatActivity {
 
     private CircleImageView img;//店员照片
     private EditText name;//店员昵称
-    private EditText intro;//店员介绍
+//    private EditText intro;//店员介绍
 
     private MyOnClickListener myOnClickListener;//监听器
 
@@ -43,7 +43,7 @@ public class MerchantEmployessAddActivity extends AppCompatActivity {
         submitbutton = findViewById(R.id.merchant_employessadd_submit);
         img = findViewById(R.id.merchant_employessadd_picture);
         name = findViewById(R.id.merchant_employessadd_name);
-        intro = findViewById(R.id.merchant_employessadd_introduce);
+//        intro = findViewById(R.id.merchant_employessadd_introduce);
     }
 
     //监听器

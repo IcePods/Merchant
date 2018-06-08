@@ -23,7 +23,7 @@ public class MerchantEmployessChangeActivity extends AppCompatActivity {
 
     private CircleImageView img;// 店员照片 id=merchant_employesschange_picture
     private EditText name;// 店员昵称  id=merchant_employesschange_name
-    private EditText intro;// 店员介绍  id=merchant_employesschange_introduce
+//    private EditText intro;// 店员介绍  id=merchant_employesschange_introduce
 
     private ImageButton backbutton;//返回按钮  id=merchant_employesschange_back
     private Button submitbutton;//提交按钮  id=merchant_employesschange_submit
@@ -41,7 +41,7 @@ public class MerchantEmployessChangeActivity extends AppCompatActivity {
         Barber barber = (Barber) bundle.getSerializable("barberInfo");
         img.setImageResource(barber.getBarberImg());
         name.setText(barber.getBarberName());
-        intro.setText(barber.getBarberIntro());
+//        intro.setText(barber.getBarberIntro());
         //绑定监听器
         myOnClickListener = new MyOnClickListener();
         backbutton.setOnClickListener(myOnClickListener);
@@ -54,7 +54,7 @@ public class MerchantEmployessChangeActivity extends AppCompatActivity {
         ll_intro = findViewById(R.id.merchant_employess_change_ll_intro);
         img = findViewById(R.id.merchant_employesschange_picture);
         name = findViewById(R.id.merchant_employesschange_name);
-        intro = findViewById(R.id.merchant_employesschange_introduce);
+//        intro = findViewById(R.id.merchant_employesschange_introduce);
         backbutton = findViewById(R.id.merchant_employesschange_back);
         submitbutton = findViewById(R.id.merchant_employesschange_submit);
     }

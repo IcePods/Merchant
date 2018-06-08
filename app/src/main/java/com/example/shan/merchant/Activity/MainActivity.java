@@ -1,9 +1,11 @@
 package com.example.shan.merchant.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.shan.merchant.R;
@@ -21,6 +23,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+
+        /*WindowManager wm1 = this.getWindowManager();
+
+        int width1 = wm1.getDefaultDisplay().getWidth();
+
+        int height1 = wm1.getDefaultDisplay().getHeight();*/
+
 
         initParams();
         //绑定监听器
