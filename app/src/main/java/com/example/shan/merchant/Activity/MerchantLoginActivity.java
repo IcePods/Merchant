@@ -36,7 +36,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
     private Button btn_toRegister;//跳转到注册界面按钮
     private Button btn_login;//登录按钮
     private EditText merchant_userName;//登录用户名
-    private EditText maerchant_userPwd;//登录密码
+    private EditText merchant_userPwd;//登录密码
     private TextView errorMessage;
     private MerchantTokenSql userTokenSql = new MerchantTokenSql(this);//数据库连接
     private SQLiteDatabase sqLiteDatabase;
@@ -51,10 +51,9 @@ public class MerchantLoginActivity extends AppCompatActivity {
                 case 1:
                     Bundle bundle = msg.getData();
                     String m = bundle.getString("merchant");
-                    Log.i("loginback",m);
-                    Merchant merchant = new Merchant();
+                    Log.i("loginbackaaaaaaa",m);
                     Gson gson = new Gson();
-                    merchant = gson.fromJson(m,Merchant.class);
+                    Merchant merchant = gson.fromJson(m,Merchant.class);
 
                     if(merchant.getMerchantCondition()== true){
                         SharedPreferences sharedPreferences= getSharedPreferences("merchanttoken", Context.MODE_PRIVATE);
@@ -65,12 +64,15 @@ public class MerchantLoginActivity extends AppCompatActivity {
                         editor.commit();
                         //登录成功插入数据库
                         insertMerchantToSql(merchant);
-                        finish();
+                        Intent intent = new Intent();
+                        intent.setClass(getApplicationContext(),MainActivity.class);
+                        startActivity(intent);
 
                     }else {
-                        errorMessage.setText("用户明密码错误");
+//                        errorMessage.setText("用户明密码错误");
+                        Toast.makeText(getApplicationContext(),"用户名密码错误",Toast.LENGTH_SHORT).show();
                         merchant_userName.setText("");
-                        maerchant_userPwd.setText("");
+                        merchant_userPwd.setText("");
                     }
                     break;
             }
@@ -87,6 +89,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
         getView();
 
         //绑定监听器
+        okHttpClient = new OkHttpClient();
         MyOnClickListener listener = new MyOnClickListener();
         btn_login.setOnClickListener(listener);
         btn_toRegister.setOnClickListener(listener);
@@ -97,7 +100,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
         btn_toRegister = findViewById(R.id.merchant_loginToRegister_btn);
         btn_login = findViewById(R.id.merchant_login_btn);
         merchant_userName = findViewById(R.id.merchant_login_username);
-        maerchant_userPwd = findViewById(R.id.merchant_login_pwd);
+        merchant_userPwd = findViewById(R.id.merchant_login_pwd);
     }
 
     //监听器类
@@ -107,9 +110,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
             Intent intent = new Intent();
             switch (view.getId()){
                 case R.id.merchant_login_btn://登录
-                    intent.setClass(getApplicationContext(),MainActivity.class);
-                    Toast.makeText(MerchantLoginActivity.this, "您已成功登录", Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
+                    postLoginMerchant(merchant_userName.getText().toString().trim(),merchant_userPwd.getText().toString().trim());
                     break;
                 case R.id.merchant_loginToRegister_btn://注册
                     intent.setClass(getApplicationContext(),MerchantRegisterActivity.class);
@@ -137,7 +138,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
                     Message message = Message.obtain();
                     message.what =1;
                     Bundle bundle =new Bundle();
-                    bundle.putString("user",a);
+                    bundle.putString("merchant",a);
                     message.setData(bundle);
                     handler.sendMessage(message);
                 }catch (IOException e){
