@@ -10,6 +10,8 @@ public class Merchant implements Serializable {
     private int merchantId;
     private String merchantAccount;
     private String merchantPassword;
+    private Boolean merchantCondition;
+    private String merchantToken;
 
     private Shop shop;
 
@@ -35,6 +37,23 @@ public class Merchant implements Serializable {
 
     public void setMerchantPassword(String merchantPassword) {
         this.merchantPassword = merchantPassword;
+    }
+
+    public void setMerchantCondition(Boolean merchantCondition) {
+        this.merchantCondition = merchantCondition;
+    }
+
+    public void setMerchantToken(String merchantToken) {
+        this.merchantToken = merchantToken;
+    }
+
+    public String getMerchantToken() {
+
+        return merchantToken;
+    }
+
+    public Boolean getMerchantCondition() {
+        return merchantCondition;
     }
 
     public Shop getShop() {

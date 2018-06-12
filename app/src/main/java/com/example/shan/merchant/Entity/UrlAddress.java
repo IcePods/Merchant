@@ -5,6 +5,6 @@ package com.example.shan.merchant.Entity;
  */
 
 public class UrlAddress {
-    public static String url = "http://10.7.85.82:8080/theBarberShopServers/";
+    public static String url = "http://192.168.191.3:8080/theBarberShopServers/";
 
 }
