@@ -77,6 +77,7 @@ public class MerchantRegisterActivity extends AppCompatActivity {
                 merchant.setMerchantAccount(account);
                 merchant.setMerchantPassword(pwd);
                 merchant.setShop(null);
+                merchant.setOpenSuccess(0);
                 String RegisterJson = gson.toJson(merchant);
                 Log.i("aaaaaaaaaaaaaaaaaaaa",RegisterJson);
                 postRegisterShop(RegisterJson);

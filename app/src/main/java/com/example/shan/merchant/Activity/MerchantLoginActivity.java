@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.example.shan.merchant.Entity.Merchant;
 import com.example.shan.merchant.Entity.UrlAddress;
-import com.example.shan.merchant.Entity.Users;
 import com.example.shan.merchant.MyTools.MerchantTokenSql;
 import com.example.shan.merchant.R;
 import com.google.gson.Gson;
@@ -38,7 +37,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
     private EditText merchant_userName;//登录用户名
     private EditText merchant_userPwd;//登录密码
     private TextView errorMessage;
-    private MerchantTokenSql userTokenSql = new MerchantTokenSql(this);//数据库连接
+    private MerchantTokenSql merchantTokenSql = new MerchantTokenSql(this);//数据库连接
     private SQLiteDatabase sqLiteDatabase;
     private OkHttpClient okHttpClient;
     private static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("text/plain;charset=UTF-8");
@@ -48,6 +47,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what){
+                //店员管理
                 case 1:
                     Bundle bundle = msg.getData();
                     String m = bundle.getString("merchant");
@@ -65,8 +65,16 @@ public class MerchantLoginActivity extends AppCompatActivity {
                         //登录成功插入数据库
                         insertMerchantToSql(merchant);
                         Intent intent = new Intent();
-                        intent.setClass(getApplicationContext(),MainActivity.class);
-                        startActivity(intent);
+                        //若已经开店成功 直接跳转到主页
+                        if(1 == merchant.getOpenSuccess()){
+                            intent.setClass(getApplicationContext(),MainActivity.class);
+                            startActivity(intent);
+                        }else {
+                            //若未开店成功 则跳转到完善店铺信息页面   未成功==0
+                            intent.setClass(getApplicationContext(),MerchantCompleteinfoActivity.class);
+                            startActivity(intent);
+                        }
+
 
                     }else {
 //                        errorMessage.setText("用户明密码错误");
@@ -75,6 +83,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
                         merchant_userPwd.setText("");
                     }
                     break;
+                //活动管理
             }
             super.handleMessage(msg);
         }
@@ -93,6 +102,34 @@ public class MerchantLoginActivity extends AppCompatActivity {
         MyOnClickListener listener = new MyOnClickListener();
         btn_login.setOnClickListener(listener);
         btn_toRegister.setOnClickListener(listener);
+        merchant_userName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                }else {
+                    String str =merchant_userName.getText().toString().trim();
+                    if (str.isEmpty()){
+                        Toast.makeText(getApplicationContext(),"用户名不能为空",Toast.LENGTH_SHORT).show();
+                    }else if (str.length()>20){
+                        Toast.makeText(MerchantLoginActivity.this, "用户名过长，请输入长度20以内的字符", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        merchant_userPwd.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                }else {
+                    String str =merchant_userPwd.getText().toString().trim();
+                    if (str.isEmpty()){
+                        Toast.makeText(MerchantLoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+                    }else if (str.length()>20){
+                        Toast.makeText(MerchantLoginActivity.this, "密码过长，请输入长度20以内的字符", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
     //获取控件
@@ -149,7 +186,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
     }
 
     private void insertMerchantToSql(Merchant merchant){
-        sqLiteDatabase = userTokenSql.getReadableDatabase();
+        sqLiteDatabase = merchantTokenSql.getReadableDatabase();
         Log.i("hzl","logininsert"+merchant.toString());
 
         ContentValues cv = new ContentValues();

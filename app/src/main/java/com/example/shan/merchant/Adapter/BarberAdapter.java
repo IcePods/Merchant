@@ -3,6 +3,7 @@ package com.example.shan.merchant.Adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,26 +64,17 @@ public class BarberAdapter extends BaseAdapter{
         CircleImageView img = convertView.findViewById(R.id.merchant_employess_item_picture);
         TextView name = convertView.findViewById(R.id.merchant_employess_item_name);
         TextView introduce = convertView.findViewById(R.id.merchant_employess_item_introduce);
-        //设置删除按钮
-//        GradientDrawable drawable = new GradientDrawable();
-//        drawable.setShape(GradientDrawable.RECTANGLE); // 画框
-//        drawable.setStroke(1, Color.BLACK); // 边框粗细及颜色
-//        drawable.setColor(0x22ffffff); // 边框内部颜色
-//        drawable.setCornerRadius(45);
-//
-//        Button button = convertView.findViewById(R.id.merchant_employess_item_delete);
-//
-//        button.setBackground(drawable); // 设置背景（效果就是有边框及底色）
-        /******/
+
         //利用传递的数据源给相应的控件对象赋值
         Barber barber = barbers.get(position);
-        img.setImageResource(barber.getBarberImg());
-//        String str = barber.getBarberIntro();
-//        if(str.length() > 10){
-//            str = str.substring(0,10)+"...";
-//        }
+        Log.i("barberaaaaaaa",barber.getBarberName());
+        img.setImageResource(R.mipmap.ic_launcher);
+        String str = "理发师理发师，擅长理光头";
+        if(str.length() > 10){
+            str = str.substring(0,10)+"...";
+        }
         name.setText(barber.getBarberName());
-//        introduce.setText(str);
+        introduce.setText(str);
         //返回子项目布局视图
         return convertView;
     }

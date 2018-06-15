@@ -19,8 +19,7 @@ public class MerchantTokenSql extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table user(id integer primary key autoincrement,merchantaccount varchar(100),merchantpassword varchar(100),merchanttoken varchar(100))");
-
+        db.execSQL("create table merchant(id integer primary key autoincrement,merchantaccount varchar(100),merchantpassword varchar(100),merchanttoken varchar(100))");
     }
 
     @Override

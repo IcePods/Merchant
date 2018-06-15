@@ -11,6 +11,7 @@ public class Merchant implements Serializable {
     private String merchantAccount;
     private String merchantPassword;
     private Boolean merchantCondition;
+    private int openSuccess;//是否开店成功  0为不成功 1为成功
     private String merchantToken;
 
     private Shop shop;
@@ -56,6 +57,14 @@ public class Merchant implements Serializable {
         return merchantCondition;
     }
 
+    public int getOpenSuccess() {
+        return openSuccess;
+    }
+
+    public void setOpenSuccess(int openSuccess) {
+        this.openSuccess = openSuccess;
+    }
+
     public Shop getShop() {
         return shop;
     }
@@ -70,6 +79,9 @@ public class Merchant implements Serializable {
                 "merchantId=" + merchantId +
                 ", merchantAccount='" + merchantAccount + '\'' +
                 ", merchantPassword='" + merchantPassword + '\'' +
+                ", merchantCondition=" + merchantCondition +
+                ", openSuccess=" + openSuccess +
+                ", merchantToken='" + merchantToken + '\'' +
                 ", shop=" + shop +
                 '}';
     }
