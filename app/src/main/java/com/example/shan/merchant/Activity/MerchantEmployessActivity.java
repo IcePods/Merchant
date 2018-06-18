@@ -91,9 +91,8 @@ public class MerchantEmployessActivity extends AppCompatActivity {
                         Log.i("listlistlist",""+list.size());
                         final BarberAdapter adapter = new BarberAdapter(getApplicationContext(), R.layout.item_activity_merchant_employess, list);
                         lv.setAdapter(adapter);
-
                         lv.setDivider(null);
-                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 //携带数据跳转到另一个Activity，进行数据的更新操作
@@ -107,7 +106,7 @@ public class MerchantEmployessActivity extends AppCompatActivity {
                                 intent.putExtras(bundle);
                                 startActivity(intent);
                             }
-                        });
+                        });*/
                         break;
                 }
                 super.handleMessage(msg);

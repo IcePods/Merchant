@@ -27,6 +27,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MerchantRegisterActivity extends AppCompatActivity {
+    private Button btn_toLogin;//跳转到登录界面按钮
     private Button btn_register;//注册按钮
     private EditText edt_account;//店铺用户名  id=merchant_register_username
     private EditText edt_pwd;//店铺密码  id=merchant_register_pwd
@@ -62,11 +63,19 @@ public class MerchantRegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_merchant_register);
+        btn_toLogin = findViewById(R.id.merchant_RegisterTologin_btn);
         btn_register = findViewById(R.id.merchant_register_btn);
         edt_account = findViewById(R.id.merchant_register_username);
         edt_pwd = findViewById(R.id.merchant_register_pwd);
 
-
+        btn_toLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(),MerchantLoginActivity.class);
+                startActivity(intent);
+            }
+        });
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -22,7 +22,6 @@
         <activity android:name=".Activity.MerchantAppointmentActivity" />
         <activity android:name=".Activity.MerchantEmployessActivity" />
         <activity android:name=".Activity.MerchantActivitysActivity" />
-        <activity android:name=".Activity.MerchantEmployessChangeActivity" />
         <activity android:name=".Activity.MerchantEmployessAddActivity" />
         <activity android:name=".Activity.MerchantCompleteinfoActivity" />
         <activity android:name=".Activity.MerchantInformationActivity" />
