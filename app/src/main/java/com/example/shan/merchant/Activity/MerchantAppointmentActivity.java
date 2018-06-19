@@ -14,11 +14,10 @@ import android.widget.TextView;
 
 import com.example.shan.merchant.Fragment.MerchantAppointmentDoneFragment;
 import com.example.shan.merchant.Fragment.MerchantAppointmentNotDoneFragment;
-import com.example.shan.merchant.Fragment.MerchantAppointmentWaitingFragment;
 import com.example.shan.merchant.R;
 
 public class MerchantAppointmentActivity extends AppCompatActivity {
-    private TextView tvWaitingFragment;//待处理标签
+//    private TextView tvWaitingFragment;//待处理标签
     private TextView tvNotDoneFragment;//未完成标签
     private TextView tvDoneFragment;//已完成标签
     private ImageButton imageButtonBack;//顶部返回箭头
@@ -27,7 +26,7 @@ public class MerchantAppointmentActivity extends AppCompatActivity {
     //定义当前页面fragment
     private Fragment currentFragment = new Fragment();
     //定义页面
-    private Fragment WaitingFragment; //待处理约页面
+//    private Fragment WaitingFragment; //待处理约页面
     private Fragment NotDoneFragment;  //未完成约页面
     private Fragment DoneFragment;   //已完成页面
 
@@ -41,24 +40,24 @@ public class MerchantAppointmentActivity extends AppCompatActivity {
 
         //给选项卡绑定事件监听器
         onClickListenerImpl listener = new onClickListenerImpl();
-        tvWaitingFragment.setOnClickListener(listener);
+//        tvWaitingFragment.setOnClickListener(listener);
         tvNotDoneFragment.setOnClickListener(listener);
         tvDoneFragment.setOnClickListener(listener);
         imageButtonBack.setOnClickListener(listener);
 
         //初始化页面对象
-        WaitingFragment = new MerchantAppointmentWaitingFragment();
+//        WaitingFragment = new MerchantAppointmentWaitingFragment();
         NotDoneFragment = new MerchantAppointmentNotDoneFragment();
         DoneFragment = new MerchantAppointmentDoneFragment();
 
         //默认显示待处理页面
-        ChangeFragment(WaitingFragment);
+        ChangeFragment(NotDoneFragment);
 
     }
 
     //获取布局文件中的控件对象
     private void getView() {
-        tvWaitingFragment = findViewById(R.id.tv_appointment_waitForDealing);
+//        tvWaitingFragment = findViewById(R.id.tv_appointment_waitForDealing);
         tvNotDoneFragment = findViewById(R.id.tv_appointment_NotDone);
         tvDoneFragment = findViewById(R.id.tv_appointment_Done);
         imageButtonBack = findViewById(R.id.appointment_back);
@@ -95,25 +94,25 @@ public class MerchantAppointmentActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.tv_appointment_waitForDealing:
+                /*case R.id.tv_appointment_waitForDealing:
                     tvWaitingFragment.setTextColor(0xFFF7A113);//更改标签颜色
                     //更改页面
                     ChangeFragment(WaitingFragment);
                     tvNotDoneFragment.setTextColor(Color.GRAY);
                     tvDoneFragment.setTextColor(Color.GRAY);
-                    break;
+                    break;*/
                 case R.id.tv_appointment_NotDone:
                     tvNotDoneFragment.setTextColor(0xFFF7A113);//更改标签颜色
                     //更改页面
                     ChangeFragment(NotDoneFragment);
-                    tvWaitingFragment.setTextColor(Color.GRAY);
+//                    tvWaitingFragment.setTextColor(Color.GRAY);
                     tvDoneFragment.setTextColor(Color.GRAY);
                     break;
                 case R.id.tv_appointment_Done:
                     tvDoneFragment.setTextColor(0xFFF7A113);//更改标签颜色
                     //更改页面
                     ChangeFragment(DoneFragment);
-                    tvWaitingFragment.setTextColor(Color.GRAY);
+//                    tvWaitingFragment.setTextColor(Color.GRAY);
                     tvNotDoneFragment.setTextColor(Color.GRAY);
                     break;
                 case R.id.appointment_back:
