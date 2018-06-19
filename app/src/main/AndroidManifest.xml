@@ -21,14 +21,14 @@
         <activity android:name=".Activity.MerchantRegisterActivity" />
         <activity android:name=".Activity.MerchantAppointmentActivity" />
         <activity android:name=".Activity.MerchantEmployessActivity" />
-        <activity android:name=".Activity.MerchantActivitysActivity" />
+        <activity android:name=".Activity.MerchantActivitiesActivity" />
         <activity android:name=".Activity.MerchantEmployessAddActivity" />
         <activity android:name=".Activity.MerchantCompleteinfoActivity" />
         <activity android:name=".Activity.MerchantInformationActivity" />
         <activity android:name=".Activity.MerchantProductionListActivity" />
         <activity android:name=".Activity.MerchantNewProductionActivity" />
         <activity android:name=".Activity.MerchantProductionDetailActivity" />
-        <activity android:name=".Activity.MerchantActivitysAddActivity"/>
+        <activity android:name=".Activity.MerchantAddActivityActivity"/>
         <activity android:name=".Activity.MerchantProductionChangeActivity"></activity>
     </application>
 

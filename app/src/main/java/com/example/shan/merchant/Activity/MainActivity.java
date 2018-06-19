@@ -1,14 +1,15 @@
 package com.example.shan.merchant.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.shan.merchant.R;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     private Button informationButton;//店铺管理按钮
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 //活动管理
                 case R.id.merchant_home_activitys:
-                    intent.setClass(getApplicationContext(),MerchantActivitysActivity.class);
+                    intent.setClass(getApplicationContext(),MerchantActivitiesActivity.class);
                     startActivity(intent);
                     break;
                 //发布作品
@@ -101,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 //退出登录
                 case R.id.merchant_home_exit:
+                    File file = new File(getApplication().getFilesDir().getParent()+"/shared_prefs/merchanttoken.xml");
+                    file.delete();
+                    Log.i("gugu","成功删除");
                     intent.setClass(getApplicationContext(),MerchantLoginActivity.class);
                     startActivity(intent);
                     break;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context="com.example.shan.merchant.Activity.MerchantActivitysAddActivity">
+    tools:context="com.example.shan.merchant.Activity.MerchantAddActivityActivity">
 
     <LinearLayout
         android:id="@+id/merchant_activity_add_ll"

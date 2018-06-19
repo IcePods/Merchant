@@ -25,6 +25,9 @@ public class Shop implements Serializable {
     //店铺与 理发师 一对多 单项映射
     private Set<Barber> BarberSet = new HashSet<Barber>();
 
+    //店铺与 活动 一对多
+    private List<Activity> ActivityList = new ArrayList<>();
+
     public int getShopId() {
         return shopId;
     }
@@ -97,11 +100,36 @@ public class Shop implements Serializable {
         BarberSet = barberSet;
     }
 
+    public List<Activity> getActivityList() {
+        return ActivityList;
+    }
+
+    public void setActivityList(List<Activity> activityList) {
+        ActivityList = activityList;
+    }
+
     public Merchant getMerchant() {
         return merchant;
     }
 
     public void setMerchant(Merchant merchant) {
         this.merchant = merchant;
+    }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "shopId=" + shopId +
+                ", shopPicture='" + shopPicture + '\'' +
+                ", shopName='" + shopName + '\'' +
+                ", shopAddress='" + shopAddress + '\'' +
+                ", shopPhone='" + shopPhone + '\'' +
+                ", shopIntroduce='" + shopIntroduce + '\'' +
+                ", ShopPictureSet=" + ShopPictureSet +
+                ", hairStyleDetails=" + hairStyleDetails +
+                ", merchant=" + merchant +
+                ", BarberSet=" + BarberSet +
+                ", ActivityList=" + ActivityList +
+                '}';
     }
 }
