@@ -11,6 +11,8 @@ import com.example.shan.merchant.R;
 
 import java.io.File;
 
+import cn.jpush.android.api.JPushInterface;
+
 public class MainActivity extends AppCompatActivity {
     private Button informationButton;//店铺管理按钮
     private Button employeesButton;//店员管理按钮
@@ -105,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     File file = new File(getApplication().getFilesDir().getParent()+"/shared_prefs/merchanttoken.xml");
                     file.delete();
                     Log.i("gugu","成功删除");
+                    JPushInterface.setAlias(getApplicationContext(),0,"exitLogin");
                     intent.setClass(getApplicationContext(),MerchantLoginActivity.class);
                     startActivity(intent);
                     break;

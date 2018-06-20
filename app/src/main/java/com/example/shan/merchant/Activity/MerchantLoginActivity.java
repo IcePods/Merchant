@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import cn.jpush.android.api.JPushInterface;
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.MediaType;
@@ -64,6 +65,7 @@ public class MerchantLoginActivity extends AppCompatActivity {
                         editor.commit();
                         //登录成功插入数据库
                         insertMerchantToSql(merchant);
+                        JPushInterface.setAlias(getApplicationContext(),0,merchant.getMerchantToken());
                         Intent intent = new Intent();
                         //若已经开店成功 直接跳转到主页
                         if(1 == merchant.getOpenSuccess()){
