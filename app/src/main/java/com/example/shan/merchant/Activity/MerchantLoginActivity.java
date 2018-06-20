@@ -26,6 +26,7 @@ import java.io.IOException;
 
 import cn.jpush.android.api.JPushInterface;
 import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -171,18 +172,26 @@ public class MerchantLoginActivity extends AppCompatActivity {
                 FormBody body = builder.build();
                 Request request = new Request.Builder().post(body).url(UrlAddress.url+"merchantLoginCheck.action").build();
                 Call call = okHttpClient.newCall(request);
-                try {
-                    Response response = call.execute();
-                    String a = response.body().string();
-                    Message message = Message.obtain();
-                    message.what =1;
-                    Bundle bundle =new Bundle();
-                    bundle.putString("merchant",a);
-                    message.setData(bundle);
-                    handler.sendMessage(message);
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
+                call.enqueue(new Callback() {//2）异步请求
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        Log.i("李垚：：：：","请求成功");
+                        String a = response.body().string();
+                        Log.i("李垚：：检测返回的数据：", a);
+                        Message message = Message.obtain();
+                        message.what =1;
+                        Bundle bundle =new Bundle();
+                        bundle.putString("merchant",a);
+                        message.setData(bundle);
+                        handler.sendMessage(message);
+                    }
+
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.i("李垚：：：：：", "请求失败");
+                    }
+                });
             }
         }.start();
     }

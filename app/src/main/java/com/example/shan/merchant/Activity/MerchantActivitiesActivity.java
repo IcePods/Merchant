@@ -95,7 +95,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
                         String m = bundle.getString("activity");
                         Gson gson = new Gson();
                         list = gson.fromJson(m,new TypeToken<List<Activity>>(){}.getType());
-                        Log.i("guguaaaaaa", "" + list.get(1).getActivityName());
+                        Log.i("guguaaaaaa", "" + list.size());
                         ActivitiesAdapter adapter = new ActivitiesAdapter(getApplicationContext(), list, R.layout.item_merchant_activity);
                         lv_activities.setAdapter(adapter);
                         lv_activities.setDivider(null);
