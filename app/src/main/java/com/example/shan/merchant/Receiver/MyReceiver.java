@@ -1,4 +1,4 @@
-package com.example.shan.merchant.Service;
+package com.example.shan.merchant.Receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.shan.merchant.Activity.MainActivity;
+import com.example.shan.merchant.Activity.MerchantAppointmentActivity;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -14,7 +14,7 @@ import cn.jpush.android.api.JPushInterface;
  * Created by shan on 2018/6/20.
  */
 
-public class MyService extends BroadcastReceiver {
+public class MyReceiver extends BroadcastReceiver {
     private final String TAG = "lhy";
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -38,7 +38,7 @@ public class MyService extends BroadcastReceiver {
                 String extraJson2 = bundle.getString(JPushInterface.EXTRA_EXTRA);
                 Log.i(TAG,"title= " + title2+"content= "+ content2+"extraJson= "+extraJson2);
                 //跳转页面
-                Intent conIntent = new Intent(context,MainActivity.class);
+                Intent conIntent = new Intent(context, MerchantAppointmentActivity.class);
                 conIntent.putExtra("content",content2);
                 conIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(conIntent);
