@@ -114,7 +114,9 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
                 String str=adapterView.getItemAtPosition(i).toString();
                 Log.i("ztl","点击了"+str);
                 //发型类型数据
-                production.setHairstyleType(str);
+                if(!str.equals("") && !str.equals("请选择")){
+                    production.setHairstyleType(str);
+                }
             }
 
             @Override
@@ -198,9 +200,8 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
                             uploadPicUriList.add(uri);
                         }
                         uploadPicAndGetPathList(handler);
+                        finish();
                     }
-                    //发布作品按钮
-                    finish();
                     break;
                 case R.id.new_production_head:
                     Intent intentFromGallery = new Intent();
@@ -289,8 +290,8 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
             //选择headPic的回调处理
             case 3:
                 headPicUri = data.getData();
+                productionHead.setText("已选择");
                 headPicAlready = true;
-                Log.i("李垚::::::::::","headstr已复制");
                 break;
         }
     }
@@ -301,7 +302,7 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
         boolean bo = false;
         String proName = productionName.getText().toString();
         String proDesc = productionDescription.getText().toString();
-        if(!"".equals(proDesc) && !"".equals(proName)){
+        if(!"".equals(proDesc) && !"".equals(proName) && production.getHairstyleType()!=null){
             bo = true;
             production.setHairstyleName(proName);
             production.setHairstyleIntroduce(proDesc);
@@ -315,7 +316,7 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
     private void uploadPicAndGetPathList(Handler uploadPicListhandler) {
         //获取图片信息
         List<String> photoStringList = new ArrayList<>();
-        for (Uri uri : uploadPicUriList) {;
+        for (Uri uri : uploadPicUriList) {
             try {
                 //获取bitmap
 //                    //ContentResolver cr = getContentResolver();

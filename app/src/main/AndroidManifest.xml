@@ -182,7 +182,6 @@
         <activity android:name=".Activity.MerchantNewProductionActivity" />
         <activity android:name=".Activity.MerchantProductionDetailActivity" />
         <activity android:name=".Activity.MerchantAddActivityActivity"/>
-        <activity android:name=".Activity.MerchantProductionChangeActivity"></activity>
     </application>
 
 </manifest>

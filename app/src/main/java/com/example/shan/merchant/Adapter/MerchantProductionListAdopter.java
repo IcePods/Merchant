@@ -8,6 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.shan.merchant.Entity.HairStyle;
+import com.example.shan.merchant.Entity.UrlAddress;
 import com.example.shan.merchant.Entity.Works;
 import com.example.shan.merchant.R;
 
@@ -23,23 +26,23 @@ public class MerchantProductionListAdopter extends BaseAdapter {
     //声明列表项的布局itemID
     private int mLauoutId;
     //声明数据源
-    private List<Works> worksList;
+    private List<HairStyle> dataSource;
 
-    public MerchantProductionListAdopter(Context mContext,int mLauoutId,List<Works> worksList){
+    public MerchantProductionListAdopter(Context mContext,int mLauoutId,List<HairStyle> worksList){
         this.mContext = mContext;
         this.mLauoutId = mLauoutId;
-        this.worksList = worksList;
+        this.dataSource = worksList;
     }
 
     //数据源的数量
     @Override
     public int getCount() {
-        return worksList.size();
+        return dataSource.size();
     }
 //返回选择的item项的数据
     @Override
     public Object getItem(int i) {
-        return worksList.get(i);
+        return dataSource.get(i);
     }
 //返回当前选择了第几个item项
     @Override
@@ -60,15 +63,32 @@ public class MerchantProductionListAdopter extends BaseAdapter {
         TextView title = view.findViewById(R.id.merchant_production_title);
         TextView price = view.findViewById(R.id.merchant_production_price);
         TextView description = view.findViewById(R.id.merchant_production_description);
-        Works work = worksList.get(i);
-        img.setImageResource(work.getWorkImg());
-        title.setText(work.getWorkTitle());
-        price.setText(work.getWorkPrice());
-        String str = work.getWorkDescription();
+        HairStyle hairStyle = dataSource.get(i);
+        //设置图片
+        Glide.with(mContext).load(UrlAddress.url + hairStyle.getHairstylePicture()).into(img);
+
+        title.setText(hairStyle.getHairstyleName());
+        price.setText("100");
+        String str = hairStyle.getHairstyleIntroduce();
         if(str.length() > 20){
             str = str.substring(0,20)+"...";
         }
         description.setText(str);
         return view;
     }
+
+    public void add(List<HairStyle> addList){
+        //增加数据
+        int position = dataSource.size();
+        dataSource.addAll(position,addList);
+        //notifyItemInserted(position);
+        notifyDataSetChanged();
+    }
+
+    public void refresh(List<HairStyle> newList){
+        //刷新数据
+        dataSource = newList;
+        notifyDataSetChanged();
+    }
+
 }

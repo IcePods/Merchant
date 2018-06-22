@@ -1,7 +1,9 @@
 package com.example.shan.merchant.MyTools;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -50,7 +52,7 @@ public class UploadPictureUtil {
                 //创建RequestBody对象
                 RequestBody body;
                 if(obj == null){
-                    body = RequestBody.create(type, "");
+                    body = RequestBody.create(type, "zhongguo");
                 }else{
                     body = RequestBody.create(type, obj);
                 }
@@ -198,5 +200,16 @@ public class UploadPictureUtil {
         input.close();
         Log.i("李垚：：：：：：","根据Uri压缩完成");
         return bitmap;
+    }
+
+    /**
+     * 获取token
+     * @param context
+     * @return
+     */
+    public String getToken(Context context){
+        SharedPreferences sharedPreferences =context.getSharedPreferences("merchanttoken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token","");
+        return token;
     }
 }
