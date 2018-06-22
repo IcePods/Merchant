@@ -81,16 +81,25 @@ public class MerchantRegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String account = edt_account.getText().toString().trim();
                 String pwd = edt_pwd.getText().toString().trim();
-                Gson gson = new GsonBuilder().serializeNulls().create();
-                Merchant merchant = new Merchant();
-                merchant.setMerchantAccount(account);
-                merchant.setMerchantPassword(pwd);
-                merchant.setShop(null);
-                merchant.setOpenSuccess(0);
-                String RegisterJson = gson.toJson(merchant);
-                Log.i("aaaaaaaaaaaaaaaaaaaa",RegisterJson);
-                postRegisterShop(RegisterJson);
-
+                if (account.isEmpty() || account.equals("")){
+                    Toast.makeText(getApplicationContext(),"用户名不能为空",Toast.LENGTH_SHORT).show();
+                }else if (account.length()>20){
+                    Toast.makeText(MerchantRegisterActivity.this, "用户名过长，请输入长度20以内的字符", Toast.LENGTH_SHORT).show();
+                }else if (pwd.isEmpty() || pwd.equals("")){
+                    Toast.makeText(MerchantRegisterActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+                }else if (pwd.length()>20){
+                    Toast.makeText(MerchantRegisterActivity.this, "密码过长，请输入长度20以内的字符", Toast.LENGTH_SHORT).show();
+                }else {
+                    Gson gson = new GsonBuilder().serializeNulls().create();
+                    Merchant merchant = new Merchant();
+                    merchant.setMerchantAccount(account);
+                    merchant.setMerchantPassword(pwd);
+                    merchant.setShop(null);
+                    merchant.setOpenSuccess(0);
+                    String RegisterJson = gson.toJson(merchant);
+                    Log.i("aaaaaaaaaaaaaaaaaaaa",RegisterJson);
+                    postRegisterShop(RegisterJson);
+                }
             }
         });
         edt_account.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -99,7 +108,7 @@ public class MerchantRegisterActivity extends AppCompatActivity {
                 if (hasFocus){
                 }else {
                     String str =edt_account.getText().toString().trim();
-                    if (str.isEmpty()){
+                    if (str.isEmpty() || str.equals("") || str == null){
                         Toast.makeText(getApplicationContext(),"用户名不能为空",Toast.LENGTH_SHORT).show();
                     }else if (str.length()>20){
                         Toast.makeText(MerchantRegisterActivity.this, "用户名过长，请输入长度20以内的字符", Toast.LENGTH_SHORT).show();
@@ -113,7 +122,7 @@ public class MerchantRegisterActivity extends AppCompatActivity {
                 if (hasFocus){
                 }else {
                     String str =edt_pwd.getText().toString().trim();
-                    if (str.isEmpty()){
+                    if (str.isEmpty() || str.equals("") || str == null){
                         Toast.makeText(MerchantRegisterActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
                     }else if (str.length()>20){
                         Toast.makeText(MerchantRegisterActivity.this, "密码过长，请输入长度20以内的字符", Toast.LENGTH_SHORT).show();

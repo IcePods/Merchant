@@ -71,16 +71,20 @@
                 android:textSize="17sp"
                 android:textColor="#101010"
                 android:text="选择作品头像"/>
+
             <TextView
                 android:id="@+id/new_production_head"
-                android:layout_below="@id/tv_new_production_title"
-                android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/tv_new_production_title"
                 android:layout_marginRight="40dp"
-                android:textSize="17sp"
-                android:text="请选择>"/>
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/tv_new_production_head"
+                android:layout_toRightOf="@+id/tv_new_production_head"
+                android:text="未选择"
+                android:gravity="right"
+                android:textSize="17sp" />
             <TextView
                 android:id="@+id/tv_new_production_description"
                 android:layout_below="@id/tv_new_production_head"
