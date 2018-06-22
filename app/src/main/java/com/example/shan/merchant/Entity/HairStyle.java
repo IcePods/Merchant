@@ -14,7 +14,7 @@ public class HairStyle implements Serializable{
     private String hairstylePicture;//发型图片地址
     private String hairstyleIntroduce;//发型简介
     private String hairstyleType; //发型类型
-    private Set<HairStyleDetail> HairStyleDetailSet;//发型详情
+    private Set<HairStyleDetail> hairStyleDetailSet;//发型详情
     private Shop shop; //店铺
 
     public int getHairstyleId() {
@@ -58,11 +58,11 @@ public class HairStyle implements Serializable{
     }
 
     public Set<HairStyleDetail> getHairStyleDetailSet() {
-        return HairStyleDetailSet;
+        return hairStyleDetailSet;
     }
 
     public void setHairStyleDetailSet(Set<HairStyleDetail> hairStyleDetailSet) {
-        HairStyleDetailSet = hairStyleDetailSet;
+        this.hairStyleDetailSet = hairStyleDetailSet;
     }
 
     public Shop getShop() {

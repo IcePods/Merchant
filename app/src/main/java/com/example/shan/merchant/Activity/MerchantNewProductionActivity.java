@@ -315,7 +315,7 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
     private void uploadPicAndGetPathList(Handler uploadPicListhandler) {
         //获取图片信息
         List<String> photoStringList = new ArrayList<>();
-        for (Uri uri : uploadPicUriList) {;
+        for (Uri uri : uploadPicUriList) {
             try {
                 //获取bitmap
 //                    //ContentResolver cr = getContentResolver();

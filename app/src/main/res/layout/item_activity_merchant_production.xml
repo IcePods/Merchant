@@ -53,15 +53,6 @@
             android:layout_toRightOf="@id/item_production_image"
             android:layout_below="@id/merchant_production_symbol"
             android:text="经典烫发，可美了，可漂亮了，可好看了"/>
-        <ImageButton
-            android:id="@+id/merchant_production_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"
-            android:background="@null"
-            android:src="@mipmap/close"/>
 
     </RelativeLayout>
 
