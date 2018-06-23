@@ -15,7 +15,7 @@ import com.example.shan.merchant.R;
 import com.google.gson.Gson;
 
 public class MerchantAddActivityActivity extends AppCompatActivity {
-    private ImageView btn_addActivity_back;//返回按钮
+    private Button btn_addActivity_back;//返回按钮
     private Button btn_addActivity_submit;//提交按钮
 
     private EditText activityName;//活动名称

@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@mipmap/add"
-            android:text="上传新作品"
+            android:text="添加作品"
             android:textAlignment="textStart"
             android:background="@null"/>
     </LinearLayout>

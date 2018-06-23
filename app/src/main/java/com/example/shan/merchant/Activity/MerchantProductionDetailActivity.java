@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MerchantProductionDetailActivity extends AppCompatActivity {
-    private ImageButton Back;//返回按钮
+    private Button Back;//返回按钮
     private Button delete;//删除按钮
     private MyClickListener myClickListener;
     public static MerchantProductionDetailActivity instance = null;//用于finish页面

@@ -34,7 +34,7 @@ import okhttp3.Response;
  * 如上传照片 则将TextView的内容设为空  考虑点击事件绑定在imageButton还是同时绑定在TextView
  */
 public class MerchantEmployessAddActivity extends AppCompatActivity {
-    private ImageButton backbutton;//返回按钮
+    private Button backbutton;//返回按钮
     private Button submitbutton;//提交按钮
 
     private EditText edit_account;//要添加店员的用户账号

@@ -10,25 +10,37 @@
         android:id="@+id/merchant_employess_add_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:background="@drawable/headerlistborder">
-
-        <ImageButton
+        <Button
             android:id="@+id/merchant_employessadd_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@null"
-            android:src="@mipmap/ic_right_back" />
-
-        <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="40dp"
+            android:background="@null"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="取消"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:text="添加店员"
             android:textColor="#000000"
             android:textSize="17sp" />
+        <Button
+            android:id="@+id/merchant_employessadd_submit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:text="添加"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,17 +93,4 @@
                 android:textSize="15dp" />
         </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/merchant_employessadd_submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/blueroundbutton"
-        android:textColor="#ffffff"
-        android:text="提交"
-        android:textSize="18sp"/>
 </RelativeLayout>
