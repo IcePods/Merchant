@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.shan.merchant.R;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button worksButton;//发布作品按钮
     private Button exitButton;//退出登录按钮
     private MyOnClickListener myListener;//监听器
+    private long fistKeyDownTime;//记录第一次按下返回的时间（毫秒数）
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,5 +116,29 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
+    }
+    /**
+     * 摁下两次返回键退出程序
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            if (System.currentTimeMillis() - fistKeyDownTime>2000) {//第一次按键
+                //提示再按一次退出系统
+                Toast.makeText(MainActivity.this,
+                        "再按一次，退出系统",
+                        Toast.LENGTH_SHORT).show();
+                //记录下当前按键的时间
+                fistKeyDownTime = System.currentTimeMillis();
+            }else {//第二次按键
+                //退出系统
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
