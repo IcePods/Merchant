@@ -39,186 +39,182 @@
         android:layout_height="match_parent"
         android:focusable="true"
         android:focusableInTouchMode="true">
-        <TextView
-            android:id="@+id/tv_information_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="40dp"
-            android:textSize="17sp"
-            android:textColor="#101010"
-            android:text="店铺名"/>
-        <EditText
-            android:id="@+id/merchant_information_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:textCursorDrawable="@drawable/color_cursor"
-            android:layout_marginTop="20dp"
-            android:maxLength="10"
-            android:textSize="17sp"
-            android:textColor="#808080"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/tv_information_name"/>
-        <TextView
-            android:id="@+id/tv_information_boss"
-            android:layout_below="@id/tv_information_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="40dp"
-            android:textSize="17sp"
-            android:textColor="#101010"
-            android:text="店长名"/>
-        <EditText
-            android:id="@+id/merchant_information_boss"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:textCursorDrawable="@drawable/color_cursor"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:maxLength="8"
-            android:textSize="17sp"
-            android:textColor="#808080"
-            android:layout_below="@id/tv_information_name"
-            android:layout_toRightOf="@id/tv_information_boss" />
-        <TextView
-            android:id="@+id/tv_information_picture"
-            android:layout_below="@id/tv_information_boss"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="40dp"
-            android:textSize="17sp"
-            android:textColor="#101010"
-            android:text="店铺头像" />
-        <TextView
-            android:id="@+id/merchant_information_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="40dp"
-            android:layout_below="@id/tv_information_boss"
-            android:layout_alignParentRight="true"
-            android:textSize="17sp"
-            android:text="请选择 >" />
-        <TextView
-            android:id="@+id/tv_information_address"
-            android:layout_below="@id/tv_information_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="40dp"
-            android:textSize="17sp"
-            android:textColor="#101010"
-            android:text="店铺地址"/>
-        <TextView
-            android:id="@+id/merchant_information_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="40dp"
-            android:layout_below="@id/tv_information_picture"
-            android:layout_alignParentRight="true"
-            android:textSize="17sp"
-            android:text="请选择 >" />
-        <TextView
-            android:id="@+id/tv_information_phone"
-            android:layout_below="@id/tv_information_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="40dp"
-            android:textSize="17sp"
-            android:textColor="#101010"
-            android:text="店铺电话"/>
-        <EditText
-            android:id="@+id/merchant_information_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:textCursorDrawable="@drawable/color_cursor"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:maxLength="11"
-            android:inputType="number"
-            android:textSize="17sp"
-            android:textColor="#808080"
-            android:layout_below="@id/tv_information_address"
-            android:layout_toRightOf="@id/tv_information_phone" />
-        <TextView
-            android:id="@+id/tv_information_addpicture"
-            android:layout_below="@id/tv_information_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="40dp"
-            android:textSize="17sp"
-            android:textColor="#101010"
-            android:text="上传店铺图片(最多5张)"/>
         <LinearLayout
-            android:id="@+id/linlayout_information"
-            android:orientation="vertical"
+            android:id="@+id/shop_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:textSize="17sp"
+                android:textColor="#101010"
+                android:text="店铺名"/>
+            <EditText
+                android:id="@+id/merchant_information_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:layout_marginTop="20dp"
+                android:hint="名称                "
+                android:gravity="right"
+                android:textSize="17sp"
+                android:textColor="#808080"
+                android:layout_marginLeft="20dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp"
-            android:background="#f0efef"
-            android:layout_below="@id/tv_information_addpicture">
-            <LinearLayout
+            android:layout_below="@+id/shop_name">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:textSize="17sp"
+                android:textColor="#101010"
+                android:text="店铺头像" />
+
+            <TextView
+                android:id="@+id/merchant_information_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="20dp"
+                android:text="请选择 >"
+                android:textSize="17sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/head">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:textSize="17sp"
+                android:textColor="#101010"
+                android:text="店铺地址"/>
+
+            <EditText
+                android:id="@+id/merchant_information_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@mipmap/addphoto"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@mipmap/addphoto"/>
-                <ImageView
+                android:background="@null"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="地址                "
+                android:gravity="right"
+                android:maxLength="11"
+                android:inputType="number"
+                android:textSize="17sp"
+                android:textColor="#808080" />
+        </RelativeLayout>
 
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@mipmap/addphoto"/>
-            </LinearLayout>
-            <LinearLayout
+        <LinearLayout
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:textSize="17sp"
+                android:textColor="#101010"
+                android:text="店铺电话"/>
+            <EditText
+                android:id="@+id/merchant_information_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp">
-                <ImageView
-                    android:id="@+id/merchant_information_shopimages"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@mipmap/addpicture"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-
+                android:background="@null"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="号码                "
+                android:gravity="right"
+                android:maxLength="11"
+                android:inputType="number"
+                android:textSize="17sp"
+                android:textColor="#808080" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shop_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phone"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="活动内容"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textColor="#000000"/>
+            <EditText
+                android:id="@+id/shop_introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:background="@drawable/edittextstyle"
+                android:hint="请输入活动内容"
+                android:textColor="#7F7F7F"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shop_desc">
+            <TextView
+                android:id="@+id/tv_information_addpicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:textSize="17sp"
+                android:textColor="#101010"
+                android:text="上传店铺图片(最多5张)"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/merchant_information_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:overScrollMode="never"
+                android:layout_below="@id/tv_information_addpicture"/>
+        </RelativeLayout>
+
         <Button
-            android:id="@+id/merchant_information_confirm"
+            android:id="@+id/merchant_information_commit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#177cb0"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_below="@id/linlayout_information"
+            android:layout_below="@id/picture"
             android:textColor="#fff"
             android:textSize="17sp"
             android:text="保存"/>
