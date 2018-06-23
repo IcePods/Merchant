@@ -36,6 +36,7 @@ import java.util.List;
 public class MerchantProductionListActivity extends AppCompatActivity {
     private ImageButton backBtn;
     private LinearLayout addProductionLL;//上传新作品
+    private Button addProductionButton;//上传新作品
     private MyClickListener myClickListener;
     private RefreshLayout refreshLayout;
     private ListView lv;
@@ -66,6 +67,7 @@ public class MerchantProductionListActivity extends AppCompatActivity {
 
         backBtn.setOnClickListener(myClickListener);
         addProductionLL.setOnClickListener(myClickListener);
+        addProductionButton.setOnClickListener(myClickListener);
     }
 
     /**
@@ -74,6 +76,7 @@ public class MerchantProductionListActivity extends AppCompatActivity {
     private void initControl() {
         backBtn = findViewById(R.id.merchant_production_list_back);
         addProductionLL = findViewById(R.id.create_new_production);
+        addProductionButton = findViewById(R.id.create_new_production_button);
         lv = findViewById(R.id.merchant_production_list);
         refreshLayout = findViewById(R.id.refreshLayout);
         data = new ArrayList<>();
@@ -143,6 +146,10 @@ public class MerchantProductionListActivity extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.create_new_production:
+                    intent.setClass(getApplicationContext(),MerchantNewProductionActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.create_new_production_button:
                     intent.setClass(getApplicationContext(),MerchantNewProductionActivity.class);
                     startActivity(intent);
                     break;

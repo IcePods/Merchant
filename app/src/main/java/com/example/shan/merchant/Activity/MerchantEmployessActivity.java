@@ -42,6 +42,7 @@ import okhttp3.Response;
 public class MerchantEmployessActivity extends AppCompatActivity {
     private ImageButton backbutton;//返回按钮
     private LinearLayout addEmployeeLL;//添加店员
+    private Button addEmployeeButton;//添加店员
     private MyOnClickListener myOnClickListener;//监听器
     private ListView lv;
 
@@ -64,7 +65,8 @@ public class MerchantEmployessActivity extends AppCompatActivity {
         selectMerchant();
         lv = findViewById(R.id.merchant_employees_list);
         backbutton = findViewById(R.id.merchant_employess_back);//返回按钮
-        addEmployeeLL = findViewById(R.id.merchant_employess_add);//添加店员按钮
+        addEmployeeLL = findViewById(R.id.merchant_employess_add);//添加店员
+        addEmployeeButton = findViewById(R.id.merchant_employess_add_btn);//添加店员按钮
 
         //初始化OKHTTPClient对象
         okHttpClient = new OkHttpClient();
@@ -74,6 +76,7 @@ public class MerchantEmployessActivity extends AppCompatActivity {
         myOnClickListener = new MyOnClickListener();
         backbutton.setOnClickListener(myOnClickListener);
         addEmployeeLL.setOnClickListener(myOnClickListener);
+        addEmployeeButton.setOnClickListener(myOnClickListener);
     }
 
     private void initData() {
@@ -120,6 +123,7 @@ public class MerchantEmployessActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
+            Intent intent = new Intent();
             switch (v.getId()){
                 //返回按钮
                 case R.id.merchant_employess_back:
@@ -128,7 +132,14 @@ public class MerchantEmployessActivity extends AppCompatActivity {
                     break;
                 //添加店员
                 case R.id.merchant_employess_add:
-                    Intent intent = new Intent();
+                    //只实现跳转，跳转到添加店员页面
+                    //2. 指定跳转路线
+                    intent.setClass(getApplicationContext(),MerchantEmployessAddActivity.class);
+                    //3. 进行跳转
+                    startActivity(intent);
+                    break;
+                //添加店员
+                case R.id.merchant_employess_add_btn:
                     //只实现跳转，跳转到添加店员页面
                     //2. 指定跳转路线
                     intent.setClass(getApplicationContext(),MerchantEmployessAddActivity.class);

@@ -17,12 +17,12 @@ import java.io.File;
 import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends AppCompatActivity {
-    private LinearLayout informationButton;//店铺管理按钮
-    private LinearLayout employeesButton;//店员管理按钮
-    private Button appointmentButton;//预约管理按钮
-    private Button activitysButton;//活动管理按钮
-    private Button worksButton;//发布作品按钮
-    private Button exitButton;//退出登录按钮
+    private LinearLayout informationLL;//店铺管理
+    private LinearLayout employeesLL;//店员管理
+    private LinearLayout appointmentLL;//预约管理
+    private LinearLayout activitysLL;//活动管理
+    private LinearLayout worksLL;//发布作品
+    private LinearLayout exitLL;//退出登录
     private MyOnClickListener myListener;//监听器
     private long fistKeyDownTime;//记录第一次按下返回的时间（毫秒数）
 
@@ -49,22 +49,22 @@ public class MainActivity extends AppCompatActivity {
     }
     //绑定监听器
     private void setMyOnClickListener(MyOnClickListener myListener) {
-        informationButton.setOnClickListener(myListener);
-        employeesButton.setOnClickListener(myListener);
-        appointmentButton.setOnClickListener(myListener);
-        activitysButton.setOnClickListener(myListener);
-        worksButton.setOnClickListener(myListener);
-        exitButton.setOnClickListener(myListener);
+        informationLL.setOnClickListener(myListener);
+        employeesLL.setOnClickListener(myListener);
+        appointmentLL.setOnClickListener(myListener);
+        activitysLL.setOnClickListener(myListener);
+        worksLL.setOnClickListener(myListener);
+        exitLL.setOnClickListener(myListener);
     }
 
     //给控件赋值
     private void initParams() {
-        informationButton = findViewById(R.id.merchant_home_information);
-        employeesButton = findViewById(R.id.merchant_home_employees);
-        appointmentButton = findViewById(R.id.merchant_home_appointment);
-        activitysButton = findViewById(R.id.merchant_home_activitys);
-        worksButton = findViewById(R.id.merchant_home_works);
-        exitButton = findViewById(R.id.merchant_home_exit);
+        informationLL = findViewById(R.id.merchant_home_information);
+        employeesLL = findViewById(R.id.merchant_home_employees);
+        appointmentLL = findViewById(R.id.merchant_home_appointment);
+        activitysLL = findViewById(R.id.merchant_home_activitys);
+        worksLL = findViewById(R.id.merchant_home_works);
+        exitLL = findViewById(R.id.merchant_home_exit);
     }
 
     //监听器类

@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -45,6 +46,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
     private ImageView btn_activity_back;//顶部返回按钮
     private ImageView img_deleteActivity;//删除活动按钮
     private LinearLayout addActivityLL;//添加活动LinearLayout
+    private Button addActivityButton;//添加活动按钮
     private ListView lv_activities;//活动列表
     private TextView tv_activity_name;//活动名称
     private TextView tv_activity_content;//活动内容
@@ -80,6 +82,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
         btn_activity_back.setOnClickListener(listener);
         /*img_deleteActivity.setOnClickListener(listener);*/
         addActivityLL.setOnClickListener(listener);
+        addActivityButton.setOnClickListener(listener);
 
 
     }
@@ -111,6 +114,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
         btn_activity_back = findViewById(R.id.activity_back);
         lv_activities = findViewById(R.id.lv_activities);
         addActivityLL = findViewById(R.id.merchant_activity_add);
+        addActivityButton = findViewById(R.id.merchant_activity_add_btn);
         tv_activity_name = findViewById(R.id.item_merchant_activity_name);
         tv_activity_content = findViewById(R.id.item_merchant_activity_content);
         tv_activity_startTime = findViewById(R.id.item_merchant_activity_start_time);
@@ -127,6 +131,10 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.merchant_activity_add://添加活动
+                    intent.setClass(getApplicationContext(), MerchantAddActivityActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.merchant_activity_add_btn://添加活动
                     intent.setClass(getApplicationContext(), MerchantAddActivityActivity.class);
                     startActivity(intent);
                     break;

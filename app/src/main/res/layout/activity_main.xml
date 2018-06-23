@@ -62,30 +62,44 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp">
-        <Button
+        <LinearLayout
             android:id="@+id/merchant_home_appointment"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
             android:background="@drawable/mainbutton"
-            android:drawableTop="@mipmap/appoint"
-            android:drawableTint="#EFEFEF"
-            android:paddingTop="45dp"
-            android:text="预约管理"
-            android:textColor="#EFEFEF"/>
-        <Button
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:drawableTop="@mipmap/appoint"
+                android:background="@null"
+                android:drawablePadding="20dp"
+                android:drawableTint="#EFEFEF"
+                android:text="预约管理"
+                android:textColor="#EFEFEF"/>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/merchant_home_activitys"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:background="@drawable/mainbutton"
-            android:drawableTop="@mipmap/activity"
-            android:drawableTint="#EFEFEF"
-            android:paddingTop="45dp"
-            android:text="活动管理"
-            android:textColor="#EFEFEF"/>
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:drawableTop="@mipmap/activity"
+                android:background="@null"
+                android:drawablePadding="20dp"
+                android:drawableTint="#EFEFEF"
+                android:text="活动管理"
+                android:textColor="#EFEFEF"/>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,29 +109,43 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="35dp">
-        <Button
+        <LinearLayout
             android:id="@+id/merchant_home_works"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
             android:background="@drawable/mainbutton"
-            android:drawableTop="@mipmap/works"
-            android:drawableTint="#EFEFEF"
-            android:paddingTop="45dp"
-            android:text="发布作品"
-            android:textColor="#EFEFEF"/>
-        <Button
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:drawableTop="@mipmap/works"
+                android:background="@null"
+                android:drawablePadding="20dp"
+                android:drawableTint="#EFEFEF"
+                android:text="发布作品"
+                android:textColor="#EFEFEF"/>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/merchant_home_exit"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:background="@drawable/mainbutton"
-            android:drawableTop="@mipmap/exit"
-            android:drawableTint="#EFEFEF"
-            android:paddingTop="45dp"
-            android:text="注销登录"
-            android:textColor="#EFEFEF"/>
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:drawableTop="@mipmap/exit"
+                android:background="@null"
+                android:drawablePadding="20dp"
+                android:drawableTint="#EFEFEF"
+                android:text="注销登录"
+                android:textColor="#EFEFEF"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
