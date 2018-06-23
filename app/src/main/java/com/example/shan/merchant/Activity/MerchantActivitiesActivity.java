@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,8 +44,7 @@ import okhttp3.Response;
 public class MerchantActivitiesActivity extends AppCompatActivity {
     private ImageView btn_activity_back;//顶部返回按钮
     private ImageView img_deleteActivity;//删除活动按钮
-    private ImageView img_addActivity;//添加活动图片
-    private TextView tv_addActivity;//添加活动文本框
+    private LinearLayout addActivityLL;//添加活动LinearLayout
     private ListView lv_activities;//活动列表
     private TextView tv_activity_name;//活动名称
     private TextView tv_activity_content;//活动内容
@@ -79,8 +79,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
         MyOnClickListener listener = new MyOnClickListener();
         btn_activity_back.setOnClickListener(listener);
         /*img_deleteActivity.setOnClickListener(listener);*/
-        img_addActivity.setOnClickListener(listener);
-        tv_addActivity.setOnClickListener(listener);
+        addActivityLL.setOnClickListener(listener);
 
 
     }
@@ -111,8 +110,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
     private void getView() {
         btn_activity_back = findViewById(R.id.activity_back);
         lv_activities = findViewById(R.id.lv_activities);
-        img_addActivity = findViewById(R.id.img_addActivity);
-        tv_addActivity = findViewById(R.id.tv_addActivity);
+        addActivityLL = findViewById(R.id.merchant_activity_add);
         tv_activity_name = findViewById(R.id.item_merchant_activity_name);
         tv_activity_content = findViewById(R.id.item_merchant_activity_content);
         tv_activity_startTime = findViewById(R.id.item_merchant_activity_start_time);
@@ -128,16 +126,10 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
                 case R.id.activity_back://返回按钮
                     finish();
                     break;
-                case R.id.img_addActivity://添加活动
+                case R.id.merchant_activity_add://添加活动
                     intent.setClass(getApplicationContext(), MerchantAddActivityActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.tv_addActivity://添加活动
-                    intent.setClass(getApplicationContext(), MerchantAddActivityActivity.class);
-                    startActivity(intent);
-                    break;
-
-
             }
         }
     }

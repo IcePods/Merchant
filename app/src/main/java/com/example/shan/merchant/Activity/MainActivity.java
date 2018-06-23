@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.shan.merchant.R;
@@ -16,8 +17,8 @@ import java.io.File;
 import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends AppCompatActivity {
-    private Button informationButton;//店铺管理按钮
-    private Button employeesButton;//店员管理按钮
+    private LinearLayout informationButton;//店铺管理按钮
+    private LinearLayout employeesButton;//店员管理按钮
     private Button appointmentButton;//预约管理按钮
     private Button activitysButton;//活动管理按钮
     private Button worksButton;//发布作品按钮

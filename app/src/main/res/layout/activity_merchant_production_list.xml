@@ -30,12 +30,20 @@
             android:textColor="#000000"
             android:textSize="17sp" />
     </LinearLayout>
-    <Button
+    <LinearLayout
         android:id="@+id/create_new_production"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="+上传新作品"
-        android:background="#ffffff"/>
+        android:background="@drawable/listborder"
+        android:gravity="center_horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/add"
+            android:text="上传新作品"
+            android:textAlignment="textStart"
+            android:background="@null"/>
+    </LinearLayout>
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/refreshLayout"

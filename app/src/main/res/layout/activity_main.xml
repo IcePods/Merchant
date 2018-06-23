@@ -16,30 +16,44 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="35dp">
-        <Button
+        <LinearLayout
             android:id="@+id/merchant_home_information"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
             android:background="@drawable/mainbutton"
-            android:drawableTop="@mipmap/merchant"
-            android:drawableTint="#EFEFEF"
-            android:paddingTop="45dp"
-            android:text="店铺管理"
-            android:textColor="#EFEFEF"/>
-        <Button
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:drawableTop="@mipmap/merchant"
+                android:background="@null"
+                android:drawablePadding="20dp"
+                android:drawableTint="#EFEFEF"
+                android:text="店铺管理"
+                android:textColor="#EFEFEF"/>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/merchant_home_employees"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:background="@drawable/mainbutton"
-            android:drawableTop="@mipmap/employee"
-            android:drawableTint="#EFEFEF"
-            android:paddingTop="45dp"
-            android:text="店员管理"
-            android:textColor="#EFEFEF"/>
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:drawableTop="@mipmap/employee"
+                android:background="@null"
+                android:drawablePadding="20dp"
+                android:drawableTint="#EFEFEF"
+                android:text="店员管理"
+                android:textColor="#EFEFEF"/>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

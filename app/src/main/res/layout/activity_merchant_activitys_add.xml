@@ -39,14 +39,14 @@
         android:background="@drawable/listborder"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="30dp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="活动名称"
+            android:textSize="15sp"
             android:layout_margin="5dp"
-            android:textSize="20sp"
             android:textColor="#000000"/>
         <EditText
             android:id="@+id/merchant_activity_add_name"
@@ -55,16 +55,8 @@
             android:layout_gravity="center_vertical"
             android:hint="请输入活动名称"
             android:textColor="#7F7F7F"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:background="@null"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@null"
-            android:src="@mipmap/arrowtip_right"/>
-
-
     </LinearLayout>
     <LinearLayout
         android:id="@+id/merchant_activity_add_ll_content"
@@ -74,14 +66,14 @@
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="活动内容"
             android:layout_margin="5dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="#000000"/>
         <EditText
             android:id="@+id/merchant_activity_add_introduce"
@@ -95,7 +87,7 @@
             android:background="@drawable/edittextstyle"
             android:text="请输入活动内容"
             android:textColor="#7F7F7F"
-            android:textSize="15sp"/>
+            android:textSize="13sp"/>
 
 
     </LinearLayout>
@@ -106,14 +98,14 @@
         android:background="@drawable/listborder"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="起止时间"
             android:layout_margin="5dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="#000000"/>
         <EditText
             android:id="@+id/merchant_activity_add_time"
@@ -122,7 +114,7 @@
             android:layout_gravity="center_vertical"
             android:hint="请输入起止时间"
             android:textColor="#7F7F7F"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:background="@null"/>
 
     </LinearLayout>

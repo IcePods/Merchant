@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ import java.util.List;
 
 public class MerchantProductionListActivity extends AppCompatActivity {
     private ImageButton backBtn;
-    private Button addBtn;
+    private LinearLayout addProductionLL;//上传新作品
     private MyClickListener myClickListener;
     private RefreshLayout refreshLayout;
     private ListView lv;
@@ -64,7 +65,7 @@ public class MerchantProductionListActivity extends AppCompatActivity {
 
 
         backBtn.setOnClickListener(myClickListener);
-        addBtn.setOnClickListener(myClickListener);
+        addProductionLL.setOnClickListener(myClickListener);
     }
 
     /**
@@ -72,7 +73,7 @@ public class MerchantProductionListActivity extends AppCompatActivity {
      */
     private void initControl() {
         backBtn = findViewById(R.id.merchant_production_list_back);
-        addBtn = findViewById(R.id.create_new_production);
+        addProductionLL = findViewById(R.id.create_new_production);
         lv = findViewById(R.id.merchant_production_list);
         refreshLayout = findViewById(R.id.refreshLayout);
         data = new ArrayList<>();

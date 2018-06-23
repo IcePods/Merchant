@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.shan.merchant.Adapter.BarberAdapter;
@@ -40,7 +41,7 @@ import okhttp3.Response;
  */
 public class MerchantEmployessActivity extends AppCompatActivity {
     private ImageButton backbutton;//返回按钮
-    private Button addbutton;//添加店员按钮
+    private LinearLayout addEmployeeLL;//添加店员
     private MyOnClickListener myOnClickListener;//监听器
     private ListView lv;
 
@@ -63,7 +64,7 @@ public class MerchantEmployessActivity extends AppCompatActivity {
         selectMerchant();
         lv = findViewById(R.id.merchant_employees_list);
         backbutton = findViewById(R.id.merchant_employess_back);//返回按钮
-        addbutton = findViewById(R.id.merchant_employess_add);//添加店员按钮
+        addEmployeeLL = findViewById(R.id.merchant_employess_add);//添加店员按钮
 
         //初始化OKHTTPClient对象
         okHttpClient = new OkHttpClient();
@@ -72,7 +73,7 @@ public class MerchantEmployessActivity extends AppCompatActivity {
         initData();
         myOnClickListener = new MyOnClickListener();
         backbutton.setOnClickListener(myOnClickListener);
-        addbutton.setOnClickListener(myOnClickListener);
+        addEmployeeLL.setOnClickListener(myOnClickListener);
     }
 
     private void initData() {
