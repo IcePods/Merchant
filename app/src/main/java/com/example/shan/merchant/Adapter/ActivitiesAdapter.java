@@ -6,10 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shan.merchant.Entity.Activity;
+import com.example.shan.merchant.Entity.HairStyle;
+import com.example.shan.merchant.Entity.UrlAddress;
+import com.example.shan.merchant.MyTools.UploadPictureUtil;
 import com.example.shan.merchant.R;
+import com.google.gson.Gson;
 
 import java.util.List;
 import java.util.Map;
@@ -26,7 +32,8 @@ public class ActivitiesAdapter extends BaseAdapter {
     private List<Activity> activitiesList;
     //声明列表项的布局itemID
     private int item_layout_id;
-    private Activity activity;
+    UploadPictureUtil util = new UploadPictureUtil();
+    private String deleteActivityUrl = UrlAddress.url + "deleteActivity.action";
 
     public ActivitiesAdapter(Context mContext, List<Activity> activitiesList, int item_layout_id) {
         this.mContext = mContext;
@@ -62,15 +69,40 @@ public class ActivitiesAdapter extends BaseAdapter {
         TextView activity_content = convertView.findViewById(R.id.item_merchant_activity_content);
         TextView activity_start_time = convertView.findViewById(R.id.item_merchant_activity_start_time);
         TextView activity_end_time = convertView.findViewById(R.id.item_merchant_activity_end_time);
+        //删除控件
+        ImageView delete = convertView.findViewById(R.id.item_merchant_activity_delete);
+
 
         //利用传递的数据源给相应的控件对象赋值
-        activity = activitiesList.get(i);
+        final Activity activity = activitiesList.get(i);
         activity_name.setText(activity.getActivityName());
-        //Log.i("aaaaaaaaaaaaa",activity.getActivity_name());
         activity_content.setText(activity.getActivityContent());
-        activity_start_time.setText((CharSequence) activity.getActivityStartTime());
-        activity_end_time.setText((CharSequence) activity.getActivityEndTime());
+        activity_start_time.setText(activity.getActivityStartTime());
+        activity_end_time.setText(activity.getActivityEndTime());
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gson gson = new Gson();
+                String activityStr = gson.toJson(activity);
+                util.requestServer(deleteActivityUrl,activityStr,null,null);
+                activitiesList.remove(activity);
+                notifyDataSetChanged();
+            }
+        });
 
         return convertView;
+    }
+
+    public void add(List<Activity> addList){
+        //增加数据
+        int position = activitiesList.size();
+        activitiesList.addAll(position, addList);
+        notifyDataSetChanged();
+    }
+
+    public void refresh(List<Activity> newList){
+        //刷新数据
+        activitiesList = newList;
+        notifyDataSetChanged();
     }
 }

@@ -1,8 +1,6 @@
 package com.example.shan.merchant.Activity;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,21 +9,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.shan.merchant.Entity.Activity;
-import com.example.shan.merchant.Entity.Merchant;
-import com.example.shan.merchant.Entity.Shop;
 import com.example.shan.merchant.Entity.UrlAddress;
+import com.example.shan.merchant.MyTools.UploadPictureUtil;
 import com.example.shan.merchant.R;
 import com.google.gson.Gson;
-
-import java.io.IOException;
-import java.util.Set;
-
-import okhttp3.Call;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class MerchantAddActivityActivity extends AppCompatActivity {
     private ImageView btn_addActivity_back;//返回按钮
@@ -33,14 +20,20 @@ public class MerchantAddActivityActivity extends AppCompatActivity {
 
     private EditText activityName;//活动名称
     private EditText activityIntro;//活动介绍
-    private EditText activityTime;//活动时间
+    private EditText startTime;//活动开始时间
+    private EditText endTime; //活动结束时间
+
+    private Activity activity;  //Activity对象
+    private String token;
+    UploadPictureUtil util = new UploadPictureUtil();
+    private String addActivityUrl = UrlAddress.url + "addActivity.action";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_merchant_activitys_add);
-
-        getView();
+        //初始化控件
+        initControl();
 
         MyOnClickListener listener = new MyOnClickListener();
         btn_addActivity_submit.setOnClickListener(listener);
@@ -48,9 +41,15 @@ public class MerchantAddActivityActivity extends AppCompatActivity {
     }
 
     //获取控件
-    private void getView(){
+    private void initControl(){
         btn_addActivity_back = findViewById(R.id.merchant_activity_add_back);
-        btn_addActivity_submit = findViewById(R.id.merchant_activity_add_submit);
+        btn_addActivity_submit = findViewById(R.id.activity_submit);
+        activityName = findViewById(R.id.merchant_activity_add_name);
+        activityIntro = findViewById(R.id.merchant_activity_add_introduce);
+        startTime = findViewById(R.id.activity_start_time);
+        endTime = findViewById(R.id.activity_end_time);
+        activity = new Activity();
+        token = util.getToken(getApplicationContext());
     }
 
     //监听器类
@@ -62,11 +61,17 @@ public class MerchantAddActivityActivity extends AppCompatActivity {
                 case R.id.merchant_activity_add_back://返回按钮
                     finish();
                     break;
-
+                case R.id.activity_submit:
+                    activity.setActivityName(activityName.getText().toString());
+                    activity.setActivityContent(activityIntro.getText().toString());
+                    activity.setActivityStartTime(startTime.getText().toString());
+                    activity.setActivityEndTime(endTime.getText().toString());
+                    Gson gson = new Gson();
+                    String activityStr = gson.toJson(activity);
+                    util.requestServer(addActivityUrl, activityStr, token, null);
+                    finish();
+                    break;
             }
         }
     }
-
-
-
 }
