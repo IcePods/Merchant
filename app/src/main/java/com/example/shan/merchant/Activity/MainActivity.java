@@ -18,11 +18,17 @@ import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout informationLL;//店铺管理
+    private Button informationBtn;
     private LinearLayout employeesLL;//店员管理
+    private Button employeesBtn;
     private LinearLayout appointmentLL;//预约管理
+    private Button appointmentBtn;
     private LinearLayout activitysLL;//活动管理
+    private Button activitysBtn;
     private LinearLayout worksLL;//发布作品
+    private Button worksBtn;
     private LinearLayout exitLL;//退出登录
+    private Button exitBtn;
     private MyOnClickListener myListener;//监听器
     private long fistKeyDownTime;//记录第一次按下返回的时间（毫秒数）
 
@@ -50,21 +56,33 @@ public class MainActivity extends AppCompatActivity {
     //绑定监听器
     private void setMyOnClickListener(MyOnClickListener myListener) {
         informationLL.setOnClickListener(myListener);
+        informationBtn.setOnClickListener(myListener);
         employeesLL.setOnClickListener(myListener);
+        employeesBtn.setOnClickListener(myListener);
         appointmentLL.setOnClickListener(myListener);
+        appointmentBtn.setOnClickListener(myListener);
         activitysLL.setOnClickListener(myListener);
+        activitysBtn.setOnClickListener(myListener);
         worksLL.setOnClickListener(myListener);
+        worksBtn.setOnClickListener(myListener);
         exitLL.setOnClickListener(myListener);
+        exitBtn.setOnClickListener(myListener);
     }
 
     //给控件赋值
     private void initParams() {
         informationLL = findViewById(R.id.merchant_home_information);
+        informationBtn = findViewById(R.id.merchant_home_information_btn);
         employeesLL = findViewById(R.id.merchant_home_employees);
+        employeesBtn = findViewById(R.id.merchant_home_employees_btn);
         appointmentLL = findViewById(R.id.merchant_home_appointment);
+        appointmentBtn = findViewById(R.id.merchant_home_appointment_btn);
         activitysLL = findViewById(R.id.merchant_home_activitys);
+        activitysBtn = findViewById(R.id.merchant_home_activitys_btn);
         worksLL = findViewById(R.id.merchant_home_works);
+        worksBtn = findViewById(R.id.merchant_home_works_btn);
         exitLL = findViewById(R.id.merchant_home_exit);
+        exitBtn = findViewById(R.id.merchant_home_exit_btn);
     }
 
     //监听器类
@@ -83,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
                     //3. 进行跳转
                     startActivity(intent);
                     break;
+                case R.id.merchant_home_information_btn:
+                    intent.setClass(getApplicationContext(),MerchantInformationActivity.class);
+                    startActivity(intent);
+                    break;
                 //店员管理
                 case R.id.merchant_home_employees:
                     //只实现跳转，跳转到店员管理页面
@@ -91,8 +113,16 @@ public class MainActivity extends AppCompatActivity {
                     //3. 进行跳转
                     startActivity(intent);
                     break;
+                case R.id.merchant_home_employees_btn:
+                    intent.setClass(getApplicationContext(),MerchantEmployessActivity.class);
+                    startActivity(intent);
+                    break;
                 //预约管理
                 case R.id.merchant_home_appointment:
+                    intent.setClass(getApplicationContext(),MerchantAppointmentActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.merchant_home_appointment_btn:
                     intent.setClass(getApplicationContext(),MerchantAppointmentActivity.class);
                     startActivity(intent);
                     break;
@@ -101,8 +131,16 @@ public class MainActivity extends AppCompatActivity {
                     intent.setClass(getApplicationContext(),MerchantActivitiesActivity.class);
                     startActivity(intent);
                     break;
+                case R.id.merchant_home_activitys_btn:
+                    intent.setClass(getApplicationContext(),MerchantActivitiesActivity.class);
+                    startActivity(intent);
+                    break;
                 //发布作品
                 case R.id.merchant_home_works:
+                    intent.setClass(getApplicationContext(),MerchantProductionListActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.merchant_home_works_btn:
                     intent.setClass(getApplicationContext(),MerchantProductionListActivity.class);
                     startActivity(intent);
                     break;
@@ -110,6 +148,14 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.merchant_home_exit:
                     File file = new File(getApplication().getFilesDir().getParent()+"/shared_prefs/merchanttoken.xml");
                     file.delete();
+                    Log.i("gugu","成功删除");
+                    JPushInterface.setAlias(getApplicationContext(),0,"exitLogin");
+                    intent.setClass(getApplicationContext(),MerchantLoginActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.merchant_home_exit_btn:
+                    File file1 = new File(getApplication().getFilesDir().getParent()+"/shared_prefs/merchanttoken.xml");
+                    file1.delete();
                     Log.i("gugu","成功删除");
                     JPushInterface.setAlias(getApplicationContext(),0,"exitLogin");
                     intent.setClass(getApplicationContext(),MerchantLoginActivity.class);

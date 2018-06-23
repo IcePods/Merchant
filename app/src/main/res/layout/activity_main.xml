@@ -25,6 +25,7 @@
             android:background="@drawable/mainbutton"
             android:gravity="center">
             <Button
+                android:id="@+id/merchant_home_information_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -44,6 +45,7 @@
             android:background="@drawable/mainbutton"
             android:gravity="center">
             <Button
+                android:id="@+id/merchant_home_employees_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -71,6 +73,7 @@
             android:background="@drawable/mainbutton"
             android:gravity="center">
             <Button
+                android:id="@+id/merchant_home_appointment_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -90,6 +93,7 @@
             android:background="@drawable/mainbutton"
             android:gravity="center">
             <Button
+                android:id="@+id/merchant_home_activitys_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -118,6 +122,7 @@
             android:background="@drawable/mainbutton"
             android:gravity="center">
             <Button
+                android:id="@+id/merchant_home_works_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -137,6 +142,7 @@
             android:background="@drawable/mainbutton"
             android:gravity="center">
             <Button
+                android:id="@+id/merchant_home_exit_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"

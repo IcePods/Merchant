@@ -54,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:hint="请输入活动名称"
+            android:maxLength="20"
             android:gravity="right"
             android:layout_weight="2"
             android:textColor="#7F7F7F"
@@ -87,6 +88,7 @@
             android:inputType="textMultiLine"
             android:minLines="4"
             android:background="@drawable/edittextstyle"
+            android:gravity="left|top"
             android:hint="请输入活动内容"
             android:textColor="#7F7F7F"
             android:textSize="13sp"/>
@@ -148,7 +150,6 @@
             android:textColor="#7F7F7F"
             android:textSize="13sp"
             android:background="@null"/>
-
     </LinearLayout>
     <Button
         android:id="@+id/activity_submit"

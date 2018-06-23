@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.shan.merchant.Adapter.FullyGridLayoutManager;
 import com.example.shan.merchant.Adapter.GridImageAdapter;
+import com.example.shan.merchant.Adapter.NewProductionSpinnerAdapter;
 import com.example.shan.merchant.Entity.HairStyle;
 import com.example.shan.merchant.Entity.HairStyleDetail;
 import com.example.shan.merchant.Entity.UrlAddress;
@@ -47,7 +48,7 @@ import java.util.Set;
 
 public class MerchantNewProductionActivity extends AppCompatActivity {
     //返回按钮
-    private ImageButton Back;
+    private Button Back;
     //作品名
     private EditText productionName;
     //作品头像
@@ -105,7 +106,7 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
     private void getHairStyleType() {
         String[] mItems = getResources().getStringArray(R.array.hairtype);
         //建立Adapter并且绑定数据源
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,mItems);
+        NewProductionSpinnerAdapter adapter = new NewProductionSpinnerAdapter(this,android.R.layout.simple_spinner_item,mItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

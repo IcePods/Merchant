@@ -37,7 +37,7 @@
         android:background="@drawable/listborder"
         android:gravity="center_horizontal">
         <Button
-            android:id="@+id/activity_add"
+            android:id="@+id/merchant_activity_add_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@mipmap/add"

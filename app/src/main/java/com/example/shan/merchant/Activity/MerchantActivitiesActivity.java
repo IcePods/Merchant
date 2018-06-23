@@ -51,7 +51,8 @@ import okhttp3.Response;
 
 public class MerchantActivitiesActivity extends AppCompatActivity {
     private ImageButton btn_activity_back;//顶部返回按钮
-    private Button addActivity; //添加活动
+    private LinearLayout addActivityLL;
+    private Button addActivityBtn; //添加活动
     private ListView lv_activity;//活动列表
     private RefreshLayout refreshLayout;//刷新加载控件
     private List<Activity> data;//数据源
@@ -78,14 +79,16 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
         //绑定监听器
         MyOnClickListener listener = new MyOnClickListener();
         btn_activity_back.setOnClickListener(listener);
-        addActivity.setOnClickListener(listener);
+        addActivityBtn.setOnClickListener(listener);
+        addActivityLL.setOnClickListener(listener);
     }
 
     //获取控件
     private void getView() {
         btn_activity_back = findViewById(R.id.activity_back);
         lv_activity = findViewById(R.id.activity_list);
-        addActivity = findViewById(R.id.activity_add);
+        addActivityBtn = findViewById(R.id.merchant_activity_add_btn);
+        addActivityLL = findViewById(R.id.merchant_activity_add);
         refreshLayout = findViewById(R.id.activity_refresh_layout);
         token = util.getToken(getApplicationContext());
         data = new ArrayList<>();
@@ -135,7 +138,11 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
                 case R.id.activity_back://返回按钮
                     finish();
                     break;
-                case R.id.activity_add://添加活动
+                case R.id.merchant_activity_add_btn://添加活动
+                    intent.setClass(getApplicationContext(), MerchantAddActivityActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.merchant_activity_add://添加活动
                     intent.setClass(getApplicationContext(), MerchantAddActivityActivity.class);
                     startActivity(intent);
                     break;
