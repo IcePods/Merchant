@@ -94,7 +94,6 @@ public class MerchantProductionListActivity extends AppCompatActivity {
                 super.handleMessage(msg);
                 Bundle bundle = msg.getData();
                 String hairStyleListStr = bundle.getString("string");
-                Log.i("李垚：：：返回的内容", hairStyleListStr);
                 Gson gson = new Gson();
                 List<HairStyle> list = gson.fromJson(hairStyleListStr, new TypeToken<List<HairStyle>>() {}.getType());
                 if(list.size()<=0){
@@ -130,10 +129,7 @@ public class MerchantProductionListActivity extends AppCompatActivity {
                 });
             }
         };
-        Log.i("李垚：：：：", token);
-        Log.i("李垚：：：showHairStyleUrl",showHairStyleUrl);
         util.requestServer(showHairStyleUrl,null,token,handler);
-
     }
 
     //点击事件监听器
@@ -146,9 +142,6 @@ public class MerchantProductionListActivity extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.create_new_production:
-                    intent.setClass(getApplicationContext(),MerchantNewProductionActivity.class);
-                    startActivity(intent);
-                    break;
                 case R.id.create_new_production_button:
                     intent.setClass(getApplicationContext(),MerchantNewProductionActivity.class);
                     startActivity(intent);

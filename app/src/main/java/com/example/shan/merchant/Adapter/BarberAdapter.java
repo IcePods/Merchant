@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.shan.merchant.Entity.Activity;
 import com.example.shan.merchant.Entity.Barber;
 import com.example.shan.merchant.Entity.UrlAddress;
 import com.example.shan.merchant.R;
@@ -131,13 +132,20 @@ public class BarberAdapter extends BaseAdapter{
             public void onResponse(Call call, Response response) throws IOException {
                 String deletebarber = response.body().string();
                 Log.i("deleteBarber",deletebarber);
-                /*Message message = Message.obtain();
-                   message.what = 2;
-                   Bundle bundle = new Bundle();
-                   bundle.putString("isCollection",isCollection);
-                   message.setData(bundle);
-                   handler.sendMessage(message);*/
             }
         });
+    }
+
+    public void add(List<Barber> addList){
+        //增加数据
+        int position = barbers.size();
+        barbers.addAll(position, addList);
+        notifyDataSetChanged();
+    }
+
+    public void refresh(List<Barber> newList){
+        //刷新数据
+        barbers = newList;
+        notifyDataSetChanged();
     }
 }
