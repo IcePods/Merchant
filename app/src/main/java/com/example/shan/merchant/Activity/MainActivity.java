@@ -1,6 +1,8 @@
 package com.example.shan.merchant.Activity;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +12,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.shan.merchant.Entity.Shop;
+import com.example.shan.merchant.Entity.UrlAddress;
+import com.example.shan.merchant.MyTools.UploadPictureUtil;
 import com.example.shan.merchant.R;
+import com.google.gson.Gson;
 
 import java.io.File;
 
@@ -31,22 +37,13 @@ public class MainActivity extends AppCompatActivity {
     private Button exitBtn;
     private MyOnClickListener myListener;//监听器
     private long fistKeyDownTime;//记录第一次按下返回的时间（毫秒数）
+    //获取shop信息地址
+    private String getShopUrl = UrlAddress.url + "getShop.action";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-
-        /*WindowManager wm1 = this.getWindowManager();
-
-        int width1 = wm1.getDefaultDisplay().getWidth();
-
-        int height1 = wm1.getDefaultDisplay().getHeight();*/
-
 
         initParams();
         //绑定监听器
@@ -94,16 +91,28 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent();
             switch (v.getId()){
                 //店铺管理
+                case R.id.merchant_home_information_btn:
                 case R.id.merchant_home_information:
                     //只实现跳转，跳转到店铺管理页面
                     //2. 指定跳转路线
-                    intent.setClass(getApplicationContext(),MerchantInformationActivity.class);
-                    //3. 进行跳转
-                    startActivity(intent);
-                    break;
-                case R.id.merchant_home_information_btn:
-                    intent.setClass(getApplicationContext(),MerchantInformationActivity.class);
-                    startActivity(intent);
+                    Handler handler = new Handler(){
+                        @Override
+                        public void handleMessage(Message msg) {
+                            super.handleMessage(msg);
+                            Bundle bundle = msg.getData();
+                            String shopStr = bundle.getString("string");
+                            Gson gson = new Gson();
+                            Shop shop = gson.fromJson(shopStr, Shop.class);
+                            Intent inten = new Intent();
+                            inten.putExtra("shop",shop);
+                            inten.setClass(getApplicationContext(),MerchantInformationActivity.class);
+                            //3. 进行跳转
+                            startActivity(inten);
+                        }
+                    };
+                    UploadPictureUtil util = new UploadPictureUtil();
+                    String token = util.getToken(getApplicationContext());
+                    util.requestServer(getShopUrl,null,token,handler);
                     break;
                 //店员管理
                 case R.id.merchant_home_employees:

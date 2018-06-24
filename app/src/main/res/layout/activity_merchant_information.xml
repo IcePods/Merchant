@@ -6,239 +6,259 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     tools:context="com.example.shan.merchant.Activity.MerchantInformationActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/headerlistborder">
+            android:background="@drawable/headerlistborder"
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/merchant_information_back"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:background="@null"
+                android:text="取消"
                 android:textColor="#000000"
-                android:textSize="15sp"
-                android:text="取消"/>
+                android:textSize="15sp" />
+
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="5"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="5"
                 android:gravity="center"
                 android:text="店铺管理"
                 android:textColor="#000000"
                 android:textSize="17sp" />
+
             <Button
                 android:id="@+id/merchant_information_commit"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:background="@null"
+                android:text="保存"
                 android:textColor="#000000"
-                android:textSize="15sp"
-                android:text="保存"/>
+                android:textSize="15sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/shop_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="30dp"
-            android:orientation="horizontal"
-            android:background="@drawable/listborder">
+            android:background="@drawable/listborder"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="15sp"
+                android:layout_weight="1"
+                android:text="店铺名"
                 android:textColor="#000000"
-                android:text="店铺名"/>
+                android:textSize="15sp" />
+
             <EditText
                 android:id="@+id/merchant_information_name"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@null"
                 android:layout_gravity="center_vertical"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:maxLength="10"
-                android:textSize="13sp"
-                android:textColor="#7F7F7F"
+                android:layout_weight="2"
+                android:background="@null"
                 android:gravity="right"
                 android:hint="请输入店铺名"
-                android:textColorHint="#7F7F7F"/>
+                android:maxLength="10"
+                android:textColor="#7F7F7F"
+                android:textColorHint="#7F7F7F"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="13sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:background="@drawable/listborder">
+            android:background="@drawable/listborder"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:text="选择店铺头像"/>
-            <TextView
-                android:id="@+id/new_production_head"
-                android:layout_width="0dp"
                 android:layout_weight="1"
+                android:text="选择店铺头像"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/merchant_information_picture"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="未选择"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="2"
                 android:gravity="right"
+                android:text="未选择"
                 android:textColor="#7F7F7F"
                 android:textSize="13sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:background="@drawable/listborder">
+            android:background="@drawable/listborder"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="15sp"
+                android:layout_weight="1"
+                android:text="店铺地址"
                 android:textColor="#000000"
-                android:text="店铺地址"/>
+                android:textSize="15sp" />
+
             <EditText
                 android:id="@+id/merchant_information_location"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="2"
                 android:background="@null"
                 android:gravity="right"
-                android:layout_gravity="center_vertical"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:maxLength="11"
-                android:inputType="number"
-                android:textSize="13sp"
+                android:hint="请输入地址"
                 android:textColor="#7F7F7F"
                 android:textColorHint="#7F7F7F"
-                android:hint="请输入地址"/>
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="13sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:background="@drawable/listborder">
+            android:background="@drawable/listborder"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="15sp"
+                android:layout_weight="1"
+                android:text="店铺电话"
                 android:textColor="#000000"
-                android:text="店铺电话"/>
+                android:textSize="15sp" />
+
             <EditText
                 android:id="@+id/merchant_information_phone"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="2"
                 android:background="@null"
                 android:gravity="right"
-                android:layout_gravity="center_vertical"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:maxLength="11"
+                android:hint="请输入号码"
                 android:inputType="number"
-                android:textSize="13sp"
+                android:maxLength="11"
                 android:textColor="#7F7F7F"
                 android:textColorHint="#7F7F7F"
-                android:hint="请输入号码"/>
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="13sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/shop_desc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="15sp"
+                android:text="活动内容"
                 android:textColor="#000000"
-                android:text="活动内容"/>
+                android:textSize="15sp" />
+
             <EditText
                 android:id="@+id/shop_introduce"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edittextstyle"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:inputType="textMultiLine"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextstyle"
                 android:gravity="left|top"
+                android:hint="请输入活动内容"
+                android:inputType="textMultiLine"
                 android:minLines="4"
-                android:textSize="13sp"
                 android:textColor="#7F7F7F"
-                android:hint="请输入活动内容"/>
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="13sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/picture"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_information_addpicture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="15sp"
+                android:text="上传店铺图片(最多5张)"
                 android:textColor="#000000"
-                android:text="上传店铺图片(最多5张)"/>
+                android:textSize="15sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/merchant_information_images"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
                 android:overScrollMode="never" />
         </LinearLayout>
     </LinearLayout>
