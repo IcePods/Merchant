@@ -9,7 +9,13 @@
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
         android:background="@drawable/listborder">
-        <de.hdodenhof.circleimageview.CircleImageView
+        <!--<de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/merchant_employess_item_picture"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:src="@mipmap/user_person_headimg"/>-->
+        <ImageView
             android:id="@+id/merchant_employess_item_picture"
             android:layout_width="65dp"
             android:layout_height="65dp"

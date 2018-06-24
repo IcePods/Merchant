@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.shan.merchant.Entity.Barber;
 import com.example.shan.merchant.Entity.UrlAddress;
@@ -74,7 +77,7 @@ public class BarberAdapter extends BaseAdapter{
             convertView = mInflater.inflate(mLayout, null);
         }
         //获取布局文件中的控件对象
-        CircleImageView img = convertView.findViewById(R.id.merchant_employess_item_picture);
+        ImageView img = convertView.findViewById(R.id.merchant_employess_item_picture);
         TextView name = convertView.findViewById(R.id.merchant_employess_item_name);
         TextView introduce = convertView.findViewById(R.id.merchant_employess_item_introduce);
 
@@ -92,10 +95,12 @@ public class BarberAdapter extends BaseAdapter{
             }
         });
         //利用传递的数据源给相应的控件对象赋值
-        Log.i("barberaaaaaaa",barber.getUser().getUserName());
-        RequestOptions requestOptions = new RequestOptions().centerCrop();
+        Log.i("barberaaaaaaa",barber.getUser().getUserHeader());
+        RequestOptions requestOptions = new RequestOptions()
+                .centerCrop()
+                .transform(new CircleCrop());
         Glide.with(mContext)
-                .load(barber.getUser().getUserHeader())
+                .load(UrlAddress.url+barber.getUser().getUserHeader())
                 .apply(requestOptions)
                 .into(img);
         String str = "理发师理发师，擅长理光头";

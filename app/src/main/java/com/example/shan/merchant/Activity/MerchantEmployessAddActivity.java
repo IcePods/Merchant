@@ -52,10 +52,17 @@ public class MerchantEmployessAddActivity extends AppCompatActivity {
                     Bundle bundle = msg.getData();
                     String flag = bundle.getString("addbarberResponse");
                     Log.i("uuuuuuuuuuuuuu",flag);
-                    if(flag.equals("true")){
-                        Toast.makeText(getApplicationContext(),"添加成功",Toast.LENGTH_SHORT).show();
+                    if(flag.equals("success")){
+                        Toast.makeText(getApplicationContext(),"理发师添加成功，请刷新页面",Toast.LENGTH_SHORT).show();
+                        finish();
+                    }else if(flag.equals("AddFalse")){
+                        Toast.makeText(getApplicationContext(),"理发师添加失败",Toast.LENGTH_SHORT).show();
+                    }else if(flag.equals("AlreadyExistsInBarber")){
+                        Toast.makeText(getApplicationContext(),"添加失败，用户不可添加，可能存在在其他店铺中",Toast.LENGTH_SHORT).show();
+                    }else if(flag.equals("AccountOrPassWordFalse")){
+                        Toast.makeText(getApplicationContext(),"添加失败，请检查您的用户名或者密码是否正确",Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(getApplicationContext(),"添加失败，请检查您的登录状态",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"添加失败，请删除用户所有收藏店铺后重试",Toast.LENGTH_SHORT).show();
                     }
                     break;
             }
