@@ -102,7 +102,7 @@ public class MerchantEmployessActivity extends AppCompatActivity {
                 List<Barber> list = gson.fromJson(m,new TypeToken<List<Barber>>(){}.getType());
                 if(list.size()<=0){
                     Toast.makeText(getApplicationContext(),
-                            "您还没有发布任何作品呦！",
+                            "您还没有添加店员呦！",
                             Toast.LENGTH_SHORT).show();
                 }else {
                     data.addAll(list);
@@ -170,7 +170,7 @@ public class MerchantEmployessActivity extends AppCompatActivity {
                         List<Barber> list = gson.fromJson(dynamicStrList, new TypeToken<List<Barber>>(){}.getType());
                         if(list.size() == 0){
                             Toast.makeText(getApplicationContext(),
-                                    "还没有人发布动态呦！",
+                                    "还没有添加店员呦！",
                                     Toast.LENGTH_SHORT).show();
                         }else {
                             data.removeAll(data);

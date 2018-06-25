@@ -108,7 +108,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
                 List<Activity> list = gson.fromJson(m,new TypeToken<List<Activity>>(){}.getType());
                 if(list.size()<=0){
                     Toast.makeText(getApplicationContext(),
-                            "您还没有发布任何作品呦！",
+                            "你的店铺最近没有活动呦！",
                             Toast.LENGTH_SHORT).show();
                 }else {
                     data.addAll(list);
@@ -170,7 +170,7 @@ public class MerchantActivitiesActivity extends AppCompatActivity {
                         List<Activity> list = gson.fromJson(dynamicStrList, new TypeToken<List<Activity>>(){}.getType());
                         if(list.size() == 0){
                             Toast.makeText(getApplicationContext(),
-                                    "还没有人发布动态呦！",
+                                    "你的店铺还没有活动呦！",
                                     Toast.LENGTH_SHORT).show();
                         }else {
                             data.removeAll(data);
