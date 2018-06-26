@@ -51,16 +51,12 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
     private Button Back;
     //作品名
     private EditText productionName;
-    //作品头像
-    private TextView productionHead;
     //作品描述
     private EditText productionDescription;
     //作品价格
     private EditText productionPrice;
     //作品展示图片
     private RecyclerView productionPicture;
-    //已选择的head图片的Uri
-    private Uri headPicUri;
 
     //图片适配器
     private GridImageAdapter adapter;
@@ -68,7 +64,6 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
     private List<LocalMedia> selectList = new ArrayList<>();
     //待上传的图片uri列表
     private List<Uri> uploadPicUriList = new ArrayList<>();
-    private Boolean headPicAlready = false;
 
     //发布作品
     private Button publish;
@@ -94,8 +89,7 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
         getHairStyleType();
         //上传作品图片绑定适配器
         setNewProductionImagesAdapter();
-        //
-        productionHead.setOnClickListener(myClickListener);
+
         Back.setOnClickListener(myClickListener);
         publish.setOnClickListener(myClickListener);
     }
@@ -136,7 +130,6 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
         productionDescription = findViewById(R.id.new_production_description);
         productionPrice = findViewById(R.id.new_production_price);
         productionPicture = findViewById(R.id.new_production_images);
-        productionHead = findViewById(R.id.new_production_head);
         publish = findViewById(R.id.commit_new_production);
         myClickListener = new MyClickListener();
         spinner = findViewById(R.id.new_production_type);
@@ -168,7 +161,6 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
                             Gson gson = new Gson();
                             List<String> picPathList = gson.fromJson(picPathStr, new TypeToken<List<String>>(){}.getType());
                             production.setHairstylePicture(picPathList.get(0));
-                            picPathList.remove(0);
                             Set<HairStyleDetail> hairStyleDetailsSet = new HashSet<>();
                             for(String str: picPathList){
                                 HairStyleDetail detail = new HairStyleDetail();
@@ -185,16 +177,11 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 "您有作品信息未填写呦！",
                                 Toast.LENGTH_SHORT).show();
-                    }else if(!headPicAlready){
-                        Toast.makeText(getApplicationContext(),
-                                "您的作品头像未选择呦！",
-                                Toast.LENGTH_SHORT).show();
                     }else if(selectList.size()<1){
                         Toast.makeText(getApplicationContext(),
                                 "您的作品图片未选择呦！",
                                 Toast.LENGTH_SHORT).show();
                     }else{
-                        uploadPicUriList.add(0,headPicUri);
                         Uri uri;
                         for (LocalMedia media:selectList){
                             uri = Uri.fromFile(new File(media.getPath()));
@@ -203,13 +190,6 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
                         uploadPicAndGetPathList(handler);
                         finish();
                     }
-                    break;
-                case R.id.new_production_head:
-                    Intent intentFromGallery = new Intent();
-                    // 设置文件类型
-                    intentFromGallery.setType("image/*");
-                    intentFromGallery.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(intentFromGallery, 3);
                     break;
             }
         }
@@ -287,12 +267,6 @@ public class MerchantNewProductionActivity extends AppCompatActivity {
 
                 adapter.setList(selectList);
                 adapter.notifyDataSetChanged();
-                break;
-            //选择headPic的回调处理
-            case 3:
-                headPicUri = data.getData();
-                productionHead.setText("已选择");
-                headPicAlready = true;
                 break;
         }
     }
