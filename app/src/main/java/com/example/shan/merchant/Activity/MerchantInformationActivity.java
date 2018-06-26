@@ -39,7 +39,6 @@ import java.util.Set;
 public class MerchantInformationActivity extends AppCompatActivity {
     private Button btnback; //返回按钮
     private EditText shopName;//店铺名字
-    private TextView shopHeader;//店铺头像
     private EditText shopAddress;//店铺地址
     private EditText shopPhone;//电话
     private RecyclerView shopPictures;//添加图片
@@ -51,26 +50,13 @@ public class MerchantInformationActivity extends AppCompatActivity {
     private GridImageAdapter adapter;
     //存储图片选择完成后的图片地址信息
     private List<LocalMedia> selectList = new ArrayList<>();
-    //已选择的head图片的Uri
-    private Uri headPicUri;
     //待上传的图片uri列表
     private List<Uri> uploadPicUriList = new ArrayList<>();
-
-    //用户是否选择了头像
-    private boolean headPicAlready = false;
-    //只上传头像
-    private boolean head = false;
-    //只上传店铺图片
-    private boolean shoppic = false;
-    //同时上传了头像和店铺图片
-    private boolean headAndShopPic = false;
 
     //作品对象
     private Shop oldShop;
     private Shop newShop;
     UploadPictureUtil util = new UploadPictureUtil();
-    //只上传头像地址
-    private String uploadHeaderUrl = UrlAddress.url + "uploadHeader.action";
     //上传店铺图片的地址
     private String uploadShopPicUrl = UrlAddress.url + "uploadShopPic.action";
     //更新店铺信息地址
@@ -91,7 +77,6 @@ public class MerchantInformationActivity extends AppCompatActivity {
         setNewShopImagesAdapter();
 
         btnback.setOnClickListener(myListener);
-        shopHeader.setOnClickListener(myListener);
         shopAddress.setOnClickListener(myListener);
         shopPictures.setOnClickListener(myListener);
         btnCommit.setOnClickListener(myListener);
@@ -103,7 +88,6 @@ public class MerchantInformationActivity extends AppCompatActivity {
     private void initControl() {
         btnback = findViewById(R.id.merchant_information_back);
         shopName = findViewById(R.id.merchant_information_name);
-        shopHeader = findViewById(R.id.merchant_information_picture);
         shopAddress = findViewById(R.id.merchant_information_location);
         shopPhone = findViewById(R.id.merchant_information_phone);
         shopPictures = findViewById(R.id.merchant_information_images);
@@ -146,17 +130,11 @@ public class MerchantInformationActivity extends AppCompatActivity {
                     finish();
                     break;
 
-                //点击选择店铺头像TextView
-                case R.id.merchant_information_picture:
-                    Intent intentFromGallery = new Intent();
-                    // 设置文件类型
-                    intentFromGallery.setType("image/*");
-                    intentFromGallery.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(intentFromGallery, 3);
-                    break;
-
                 //点击保存按钮
                 case R.id.merchant_information_commit:
+                    Toast.makeText(getApplicationContext(),
+                            "正在保存店铺信息，请稍等！！",
+                            Toast.LENGTH_SHORT).show();
                     Handler handler = new Handler(){
                         @Override
                         public void handleMessage(Message msg) {
@@ -164,52 +142,27 @@ public class MerchantInformationActivity extends AppCompatActivity {
                             Bundle bundle = msg.getData();
                             String picPathStr = bundle.getString("string");
                             Gson gson = new Gson();
-                            if(head){
-                                String path = picPathStr;
-                                newShop.setShopPicture(path);
+                            List<String> picPathList = gson.fromJson(picPathStr, new TypeToken<List<String>>(){}.getType());
+                            newShop.setShopPicture(picPathList.get(0));
+                            Set<ShopPicture> shopPictureSet = new HashSet<>();
+                            for(String str: picPathList){
+                                ShopPicture shopPic = new ShopPicture();
+                                shopPic.setShoppicture_picture(str);
+                                shopPictureSet.add(shopPic);
                             }
-                            if(shoppic){
-                                List<String> picPathList = gson.fromJson(picPathStr, new TypeToken<List<String>>(){}.getType());
-                                Set<ShopPicture> shopPictureSet = new HashSet<>();
-                                for(String str: picPathList){
-                                    ShopPicture shopPic = new ShopPicture();
-                                    shopPic.setShoppicture_picture(str);
-                                    shopPictureSet.add(shopPic);
-                                }
-                                newShop.setShopPictureSet(shopPictureSet);
-                            }
-                            if(headAndShopPic){
-                                List<String> picPathList = gson.fromJson(picPathStr, new TypeToken<List<String>>(){}.getType());
-                                newShop.setShopPicture(picPathList.get(0));
-                                picPathList.remove(0);
-                                Set<ShopPicture> shopPictureSet = new HashSet<>();
-                                for(String str: picPathList){
-                                    ShopPicture shopPic = new ShopPicture();
-                                    shopPic.setShoppicture_picture(str);
-                                    shopPictureSet.add(shopPic);
-                                }
-                                newShop.setShopPictureSet(shopPictureSet);
-                            }
+                            newShop.setShopPictureSet(shopPictureSet);
                             List<Shop> oldAndNewShop = new ArrayList<>();
                             oldAndNewShop.add(oldShop);
                             oldAndNewShop.add(newShop);
                             String shopStr = gson.toJson(oldAndNewShop);
                             util.requestServer(UploadShopInformationUrl,shopStr,token,null);
-                            finish();
                         }
                     };
 
+
                     //从控件中获得内容
                     createNewShop();
-                    if(headPicAlready && selectList.size()<1){
-                        //用户只重新选择了头像
-                        String photoStr = util.getStringFromUri(MerchantInformationActivity.this,headPicUri);
-                        util.requestServer(uploadHeaderUrl,photoStr,token,handler);
-                        head = true;
-                        shoppic = false;
-                        headAndShopPic = false;
-                        newShop.setShopPictureSet(oldShop.getShopPictureSet());
-                    }else if(!headPicAlready && selectList.size()>0){
+                    if(selectList.size()>0){
                         //只上传店铺图片
                         Uri uri;
                         for (LocalMedia media:selectList){
@@ -217,24 +170,9 @@ public class MerchantInformationActivity extends AppCompatActivity {
                             uploadPicUriList.add(uri);
                         }
                         uploadPicAndGetPathList(uploadShopPicUrl, handler);
-                        head = false;
-                        shoppic = true;
-                        headAndShopPic = false;
-                        newShop.setShopPicture(oldShop.getShopPicture());
-                    }else if(headPicAlready && selectList.size()>0){
-                        //重新选择了头像和店铺图片
-                        uploadPicUriList.add(0,headPicUri);
-                        Uri uri;
-                        for (LocalMedia media:selectList){
-                            uri = Uri.fromFile(new File(media.getPath()));
-                            uploadPicUriList.add(uri);
-                        }
-                        uploadPicAndGetPathList(uploadShopPicUrl,handler);
-                        head = false;
-                        shoppic = false;
-                        headAndShopPic = true;
+                        finish();
                     }else {
-                        //没有重新选择头像和店铺图片
+                        //没有重新选择图片
                         newShop.setShopPicture(oldShop.getShopPicture());
                         newShop.setShopPictureSet(oldShop.getShopPictureSet());
                         List<Shop> oldAndNewShop = new ArrayList<>();
@@ -320,12 +258,6 @@ public class MerchantInformationActivity extends AppCompatActivity {
 
                 adapter.setList(selectList);
                 adapter.notifyDataSetChanged();
-                break;
-            //选择headPic的回调处理
-            case 3:
-                headPicUri = data.getData();
-                shopHeader.setText("已选择");
-                headPicAlready = true;
                 break;
         }
     }

@@ -38,10 +38,8 @@ import java.util.List;
 import java.util.Set;
 
 public class MerchantCompleteinfoActivity extends AppCompatActivity {
-    private Button btnback; //返回按钮
     private Button btnCommit;//保存按钮
     private EditText shopName;//店铺名字
-    private TextView shopHeader;//店铺头像
     private EditText shopAddress;//店铺地址
     private EditText shopPhone;//电话
     private EditText shopIntroduce;//简介
@@ -52,13 +50,8 @@ public class MerchantCompleteinfoActivity extends AppCompatActivity {
     private GridImageAdapter adapter;
     //存储图片选择完成后的图片地址信息
     private List<LocalMedia> selectList = new ArrayList<>();
-    //已选择的head图片的Uri
-    private Uri headPicUri;
     //待上传的图片uri列表
     private List<Uri> uploadPicUriList = new ArrayList<>();
-
-    //用户是否选择了头像
-    private boolean headPicAlready = false;
 
     UploadPictureUtil util = new UploadPictureUtil();
     private String token;
@@ -83,19 +76,15 @@ public class MerchantCompleteinfoActivity extends AppCompatActivity {
 
         //设置监听器
         myOnClickListener = new MyOnClickListener();
-        btnback.setOnClickListener(myOnClickListener);
         btnCommit.setOnClickListener(myOnClickListener);
-        shopHeader.setOnClickListener(myOnClickListener);
     }
 
     /**
      * 初始化控件
      */
     private void initControl() {
-        btnback= findViewById(R.id.add_information_back);
         btnCommit = findViewById(R.id.add_information_commit);
         shopName = findViewById(R.id.add_information_name);
-        shopHeader = findViewById(R.id.add_information_picture);
         shopAddress = findViewById(R.id.add_information_location);
         shopPhone = findViewById(R.id.add_information_phone);
         shopIntroduce = findViewById(R.id.add_Information_introduce);
@@ -109,14 +98,6 @@ public class MerchantCompleteinfoActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                //选择头像图片按钮
-                case R.id.add_information_picture:
-                    Intent intentFromGallery = new Intent();
-                    // 设置文件类型
-                    intentFromGallery.setType("image/*");
-                    intentFromGallery.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(intentFromGallery, 3);
-                    break;
 
                 //申请开店按钮
                 case R.id.add_information_commit:
@@ -147,16 +128,11 @@ public class MerchantCompleteinfoActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 "您有店铺信息未填写呦！",
                                 Toast.LENGTH_SHORT).show();
-                    }else if(!headPicAlready){
-                        Toast.makeText(getApplicationContext(),
-                                "您的店铺头像未选择呦！",
-                                Toast.LENGTH_SHORT).show();
                     }else if(selectList.size()<1){
                         Toast.makeText(getApplicationContext(),
                                 "您的店铺图片未选择呦！",
                                 Toast.LENGTH_SHORT).show();
                     }else{
-                        uploadPicUriList.add(0,headPicUri);
                         Uri uri;
                         for (LocalMedia media:selectList){
                             uri = Uri.fromFile(new File(media.getPath()));
@@ -169,14 +145,6 @@ public class MerchantCompleteinfoActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     break;
-
-                //取消按钮
-                case R.id.add_information_back:
-                    finish();
-                    break;
-
-
-
             }
         }
     }
@@ -252,12 +220,6 @@ public class MerchantCompleteinfoActivity extends AppCompatActivity {
 
                 adapter.setList(selectList);
                 adapter.notifyDataSetChanged();
-                break;
-            //选择headPic的回调处理
-            case 3:
-                headPicUri = data.getData();
-                shopHeader.setText("已选择");
-                headPicAlready = true;
                 break;
         }
     }

@@ -19,13 +19,12 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/add_information_back"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:background="@null"
-                android:text="取消"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
@@ -85,39 +84,6 @@
                 android:textColor="#7F7F7F"
                 android:textColorHint="#7F7F7F"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/head"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/listborder"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="选择店铺头像"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/add_information_picture"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="2"
-                android:gravity="right"
-                android:text="未选择"
-                android:textColor="#7F7F7F"
                 android:textSize="13sp" />
         </LinearLayout>
 
